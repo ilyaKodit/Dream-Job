@@ -25,6 +25,12 @@ router.post('/log', async (req, res) => {
     ;
 });
 
+router.post('/reg', async (req, res) => {
+
+    await console.log(req.body);
+    res.json({flag: true});
+});
+
 
 
 module.exports = router;
