@@ -5,10 +5,10 @@ const router = express.Router();
 
 // const User = require('../models/userSchema');
 
-mongoose.connect('mongodb://localhost/DreamJob', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
+// mongoose.connect('mongodb://localhost/DreamJob', {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+// });
 
 
 router.get('/', async (req, res) => {
