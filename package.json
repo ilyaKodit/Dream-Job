@@ -1,0 +1,25 @@
+{
+  "name": "Dream-Job",
+  "version": "1.0.0",
+  "description": "Приватный проект для Elbrus Bootcamp, позволяющий всему учащимся и учившимся просматривать и создавать отзывы о собеседованиях.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilyaKodit/Dream-Job.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ilyaKodit/Dream-Job/issues"
+  },
+  "homepage": "https://github.com/ilyaKodit/Dream-Job#readme",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.20.0"
+  }
+}
