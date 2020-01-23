@@ -17,5 +17,11 @@ router.get('/', async (req, res) => {
     res.json({test: 'hello bro!'});
 });
 
+router.post('/reg', async (req, res) => {
+
+    await console.log(req.body);
+    res.json({flag: true});
+});
+
 
 module.exports = router;

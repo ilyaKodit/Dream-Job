@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import Home from '../Home/Home';
 import Login from '../Login/Login';
+import Registration from "../Registration/Registration";
 
 function App() {
   return (
@@ -29,7 +30,7 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
-          <Route path="/registration">{/* <Registration /> */}</Route>
+          <Route path="/registration"><Registration /></Route>
         </Switch>
       </div>
     </Router>
