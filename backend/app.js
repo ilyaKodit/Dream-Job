@@ -8,7 +8,7 @@ const FileStore = require("session-file-store")(session);
 
 const app = express();
 
-// connect('mongodb+srv://ilyakodit87@gmail.com:ilya-gluk@cluster0-a7swf.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
+connect('mongodb+srv://admin:admin@cluster0-a7swf.mongodb.net/dreamjob?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.use(session({
     store: new FileStore(),
