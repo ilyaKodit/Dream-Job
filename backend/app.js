@@ -1,10 +1,14 @@
 const express = require('express');
 const path = require('path');
+const mongoose = require('mongoose');
+const { connect } = mongoose;
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const FileStore = require("session-file-store")(session);
 
 const app = express();
+
+// connect('mongodb+srv://ilyakodit87@gmail.com:ilya-gluk@cluster0-a7swf.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.use(session({
     store: new FileStore(),
