@@ -5,8 +5,10 @@ import './App.css';
 // import Navbar from '../Navbar/Navbar';
 import Home from '../Home/Home';
 import Login from '../Login/Login';
+import Registration from "../Registration/Registration";
 import FAQ from '../FAQ/FAQ';
 import Team from '../Team/Team';
+
 
 function App() {
   return (
@@ -33,7 +35,10 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
-          <Route path="/registration">{/* <Registration /> */}</Route>
+
+          <Route path="/registration"><Registration /></Route>
+
+          
 
           <Route path="/faq">
             <FAQ />
@@ -41,6 +46,7 @@ function App() {
           <Route path="/team">
             <Team />
           </Route>
+
         </Switch>
         <footer id="footer">
           <ul id="horizontal-list">
