@@ -14,12 +14,12 @@ class Navbar extends Component {
   logout = () => {
     sessionStorage.clear();
     window.location.reload();
-  }
+  };
 
   render() {
     return (
       <div className={'nav'}>
-        {sessionStorage.user && <Link className={'nav_item'} to={'/main'}>ToDoList</Link>}
+        {sessionStorage.user && <Link className={'nav_item'} to={'/main'}>Companies</Link>}
         {sessionStorage.user && <Link onClick={this.logout} to={'/'} className={'nav_item'}>Logout</Link>}
         {!sessionStorage.user && <Link className={'nav_item'} to={'/login'}>Log In</Link>}
         {!sessionStorage.user && <Link className={'nav_item'} to={'/registration'}>Registration</Link>}

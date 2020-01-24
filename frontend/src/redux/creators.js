@@ -1,8 +1,8 @@
-import {TEST} from "./actions";
+import {COMPANIES} from "./actions";
 
-export const Refresh = (data) => {
+export const LoadingCompanies = (data) => {
     return {
-        type: TEST,
+        type: COMPANIES,
         data: data,
     }
 };

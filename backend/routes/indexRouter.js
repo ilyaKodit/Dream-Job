@@ -8,24 +8,30 @@ const session = require('express-session');
 const router = express.Router();
 
 const User = require('../model/user');
-
+const Company = require('../model/company');
 
 router.get('/', async (req, res) => {
     res.json({test: 'hello bro!'});
 });
 
+router.get('/companies', async (req, res) => {
+
+    let allCompanies = await Company.find();
+
+    res.json(allCompanies);
+});
+
 router.post('/log', async (req, res) => {
 
-  console.log(req.body);
   const { login, password } = req.body;
   const newUser = await User.findOne({ login });
-  console.log(newUser);
+
   if (newUser && newUser.password === password) {
-    // req.session.user = newUser;
+
     res.json({id: newUser._id, login:newUser.login });
   }
   // } else res.json({ status: false })
-    
+
 
 });
 

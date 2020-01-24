@@ -1,14 +1,14 @@
-import {TEST} from "./actions";
+import {COMPANIES} from "./actions";
 
 const initialState = {
-    test: ''
+    companies: null
 };
 
 export default function (oldState = initialState, action) {
     switch (action.type) {
-        case TEST:
+        case COMPANIES:
             return {
-                test: action.data,
+                companies: action.data,
             };
 
         default:
