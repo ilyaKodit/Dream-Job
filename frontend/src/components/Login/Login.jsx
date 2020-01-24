@@ -38,7 +38,7 @@ class Login extends Component {
       })
     });
     let data = await resp.json();
-    // console.log(data);  
+    // console.log(data);
     sessionStorage.user = data.id;
     sessionStorage.name = data.login;
     console.log(sessionStorage.user);
@@ -66,7 +66,9 @@ class Login extends Component {
           value={this.state.password} >
         </input>
         <button onClick={this.buttonPush}>PUSH</button>
-        {sessionStorage.user && <Redirect to="/main" />}
+
+        {sessionStorage.user && <Redirect to="/main"/>}
+
       </>
     )
   }

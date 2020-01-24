@@ -3,7 +3,11 @@ const mongoose = require('mongoose');
 const { Schema, model } = mongoose;
 
 const Companyschema = new Schema({
-  Id: String,
+  id: String,
+  name: String,
+  image: String,
+  site_url: String,
+  city: String,
   averageRating: Number,
   count: Number,
 });
