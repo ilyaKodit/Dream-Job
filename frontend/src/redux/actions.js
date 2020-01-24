@@ -1,4 +1,4 @@
-const TEST ='TEST';
+const COMPANIES ='COMPANIES';
 
 
-export {TEST}
+export {COMPANIES}
