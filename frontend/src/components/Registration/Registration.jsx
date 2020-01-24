@@ -25,7 +25,7 @@ class Registration extends Component {
     registration = async (event) => {
 
         if (this.state.pass === this.state.pass2){
-            console.log('test');
+
             let resp = await fetch(
                 '/reg',
                 {
@@ -70,7 +70,7 @@ class Registration extends Component {
                 <br/>
                 <input onClick={this.registration} type="submit" value={'Зарегистрироваться'}/>
 
-                {sessionStorage.user && <Redirect to="/"/>}
+                {sessionStorage.user && <Redirect to="/main"/>}
             </div>
         );
     }
