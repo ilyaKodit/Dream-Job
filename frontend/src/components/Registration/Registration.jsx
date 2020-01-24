@@ -62,11 +62,11 @@ class Registration extends Component {
                 <h2>Registration</h2>
                 <input required onChange={this.onChangeGlobal('login')} type="text" placeholder={'Введите логин'} value={this.state.login}/>
                 <br/>
+                <input onChange={this.onChangeGlobal('email')} type="text" placeholder={'Введите почту'} value={this.state.email}/>
+                <br/>
                 <input required onChange={this.onChangeGlobal('pass')} type="text" placeholder={'Введите пароль'} value={this.state.pass}/>
                 <br/>
                 <input required onChange={this.onChangeGlobal('pass2')} type="text" placeholder={'Введите пароль еще раз'} value={this.state.pass2}/>
-                <br/>
-                <input onChange={this.onChangeGlobal('email')} type="text" placeholder={'Введите почту'} value={this.state.email}/>
                 <br/>
                 <input onClick={this.registration} type="submit" value={'Зарегистрироваться'}/>
 
