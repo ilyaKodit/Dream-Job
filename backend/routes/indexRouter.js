@@ -3,12 +3,7 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const router = express.Router();
 
-// const User = require('../models/userSchema');
-
-// mongoose.connect('mongodb://localhost/DreamJob', {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true
-// });
+const User = require('../model/user');
 
 
 router.get('/', async (req, res) => {
@@ -19,8 +14,23 @@ router.get('/', async (req, res) => {
 
 router.post('/reg', async (req, res) => {
 
-    await console.log(req.body);
-    res.json({flag: true});
+    let existenceUser = await User.findOne({email: req.body.email});
+
+    if (!existenceUser) {
+
+        let newUser = new User({
+            login: req.body.login,
+            password: req.body.pass,
+            email: req.body.email
+        });
+        newUser.save().then((data) => {
+            res.json(data._id);
+        });
+
+    } else {
+        res.json(false);
+    }
+
 });
 
 
