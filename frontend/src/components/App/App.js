@@ -9,6 +9,7 @@ import Registration from "../Registration/Registration";
 import FAQ from '../FAQ/FAQ';
 import Team from '../Team/Team';
 import Navbar from '../Navbar/Navbar';
+import Feedback from '../Feedback/Feedback';
 
 
 function App() {
@@ -33,7 +34,6 @@ function App() {
           <Route path="/team">
             <Team />
           </Route>
-
         </Switch>
         <footer id="footer">
           <ul id="horizontal-list">
