@@ -11,23 +11,24 @@ const User = require('../model/user');
 
 
 router.get('/', async (req, res) => {
-  res.json({ test: 'hello bro!' });
+    res.json({test: 'hello bro!'});
 });
 
 router.post('/log', async (req, res) => {
-  console.log(req.body);
-  const { login, password } = req.body;
-  const newUser = await User.findOne({ login });
-  console.log(newUser);
-  if (newUser && newUser.password === password) {
-    // req.session.user = newUser;
-    res.json({ status: true });
-  } else res.json({ status: false })
+    console.log(req.body);
+    const {login, password} = req.body;
+    const newUser = await User.findOne({login});
+    console.log(newUser);
+    if (newUser && newUser.password === password) {
+        // req.session.user = newUser;
+        res.json({status: true});
+    } else res.json({status: false})
     ;
 });
 
 router.post('/reg', async (req, res) => {
 
+    console.log(req.body);
     let existenceUser = await User.findOne({email: req.body.email});
 
     if (!existenceUser) {
@@ -41,12 +42,9 @@ router.post('/reg', async (req, res) => {
             res.json(data._id);
         });
 
-    } else {
-        res.json(false);
     }
 
 });
-
 
 
 module.exports = router;
