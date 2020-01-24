@@ -15,15 +15,18 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/log', async (req, res) => {
-    console.log(req.body);
-    const {login, password} = req.body;
-    const newUser = await User.findOne({login});
-    console.log(newUser);
-    if (newUser && newUser.password === password) {
-        // req.session.user = newUser;
-        res.json({status: true});
-    } else res.json({status: false})
-    ;
+
+  console.log(req.body);
+  const { login, password } = req.body;
+  const newUser = await User.findOne({ login });
+  console.log(newUser);
+  if (newUser && newUser.password === password) {
+    // req.session.user = newUser;
+    res.json({id: newUser._id, login:newUser.login });
+  }
+  // } else res.json({ status: false })
+    
+
 });
 
 router.post('/reg', async (req, res) => {
