@@ -8,26 +8,15 @@ import Login from '../Login/Login';
 import Registration from "../Registration/Registration";
 import FAQ from '../FAQ/FAQ';
 import Team from '../Team/Team';
+import Navbar from '../Navbar/Navbar';
 
 
 function App() {
   return (
     <Router>
       <div>
-        <ul id="page-container">
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-          <li>
-            <Link to="/registration">Registration</Link>
-          </li>
-        </ul>
-
-        <hr />
-
+        <Navbar />
+        <hr></hr>
         <Switch>
           <Route exact path="/">
             <Home />
@@ -37,8 +26,6 @@ function App() {
           </Route>
 
           <Route path="/registration"><Registration /></Route>
-
-          
 
           <Route path="/faq">
             <FAQ />
