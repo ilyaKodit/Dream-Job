@@ -9,6 +9,7 @@ import Registration from "../Registration/Registration";
 import FAQ from '../FAQ/FAQ';
 import Team from '../Team/Team';
 import Navbar from '../Navbar/Navbar';
+import AddCompany from '../AddCompany/AddCompany';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           </Route>
 
           <Route path="/registration"><Registration /></Route>
+          <Route path="/test"><AddCompany /></Route>
 
           <Route path="/faq">
             <FAQ />
