@@ -7,6 +7,7 @@ import Registration from "../Registration/Registration";
 import FAQ from '../FAQ/FAQ';
 import Team from '../Team/Team';
 import Navbar from '../Navbar/Navbar';
+
 import MainPage from "../MainPage/MainPage";
 import CompanyInfo from "../CompanyInfo/CompanyInfo";
 import Error from "../Error/Error";
