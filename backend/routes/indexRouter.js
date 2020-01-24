@@ -8,10 +8,15 @@ const session = require('express-session');
 const router = express.Router();
 
 const User = require('../model/user');
+
+const Feedback = require('../model/feedback');
+
+
 const Company = require('../model/company');
 
+
 router.get('/', async (req, res) => {
-    res.json({test: 'hello bro!'});
+  res.json({ test: 'hello bro!' });
 });
 
 router.get('/companies', async (req, res) => {
@@ -28,32 +33,43 @@ router.post('/log', async (req, res) => {
 
   if (newUser && newUser.password === password) {
 
-    res.json({id: newUser._id, login:newUser.login });
+    // req.session.user = newUser;
+    res.json({ id: newUser._id, login: newUser.login });
   }
   // } else res.json({ status: false })
-
 
 });
 
 router.post('/reg', async (req, res) => {
-
-    console.log(req.body);
-    let existenceUser = await User.findOne({email: req.body.email});
-
-    if (!existenceUser) {
-
-        let newUser = new User({
-            login: req.body.login,
-            password: req.body.pass,
-            email: req.body.email
-        });
-        newUser.save().then((data) => {
-            res.json(data._id);
-        });
-
-    }
-
+  console.log(req.body);
+  let existenceUser = await User.findOne({ email: req.body.email });
+  if (!existenceUser) {
+    let newUser = new User({
+      login: req.body.login,
+      password: req.body.pass,
+      email: req.body.email
+    });
+    newUser.save().then((data) => {
+      res.json(data._id);
+    });
+  }
 });
 
+router.post('/feed', async (req, res) => {
+  console.log(req.body);
+  const { userId, interView, quest, task, contentText, rating } = req.body;
+  let newFeed = new Feedback({
+    userId,
+    interviewDate: interView,
+    createDate: Date.now(),
+    questions: quest,
+    tasks: task,
+    contentText: contentText,
+    rating: rating,
+  });
+  newFeed.save().then((data) => {
+    res.json(data._id);
+  });
+});
 
 module.exports = router;
