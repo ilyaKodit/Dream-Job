@@ -8,6 +8,8 @@ const debug = require('debug')('backend:server');
 const http = require('http');
 const app = require('./app');
 
+const secret = 'mysecretsshhh';
+
 /**
  * Get port from environment and store in Express.
  */
