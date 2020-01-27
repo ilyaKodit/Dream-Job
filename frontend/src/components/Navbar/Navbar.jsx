@@ -19,9 +19,11 @@ class Navbar extends Component {
   render() {
     return (
       <div className={'nav'}>
+
         <div>
           <Link className={'nav_item'} to={'/'}>Home</Link>
           {sessionStorage.user && <Link className={'nav_item'} to={'/main'}>Companies</Link>}
+          {!sessionStorage.user && <Link className={'nav_item'} to={'/add/employer/'}>Employer</Link>}
         </div>
         <div>
           Logo
@@ -31,6 +33,7 @@ class Navbar extends Component {
           {!sessionStorage.user && <Link className={'nav_item'} to={'/login'}>Log In</Link>}
           {!sessionStorage.user && <Link className={'nav_item'} to={'/registration'}>Registration</Link>}
         </div>
+
       </div>
     );
   }

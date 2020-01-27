@@ -7,6 +7,7 @@ import Registration from "../Registration/Registration";
 import FAQ from '../FAQ/FAQ';
 import Team from '../Team/Team';
 import Navbar from '../Navbar/Navbar';
+import AddCompanyPage from '../AddCompany/AddCompanyPage';
 import AddCompany from '../AddCompany/AddCompany';
 import Feedback from "../Feedback/Feedback";
 import MainPage from "../MainPage/MainPage";
@@ -36,6 +37,7 @@ class App extends Component {
                             <Route path="/team" component={Team}/>
                             <Route path="/main" component={MainPage}/>
                             <Route path="/company/:id" component={CompanyInfo}/>
+                            <Route path='/add/employer/:id?' component={AddCompanyPage}/>
                             <Route path="/feedback/:id" component={Feedback}/>
                             <Route component={Error}/>
 
