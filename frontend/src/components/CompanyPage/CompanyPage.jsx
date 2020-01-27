@@ -32,6 +32,7 @@ class CompanyPage extends Component {
                 <p data-id={this.props.company.id}>Комментарии: {this.props.company.count}</p>
 
                 {this.state.id && <Redirect to={`company/${this.state.id}`}/>}
+                {!sessionStorage.user && <Redirect to="/login"/>}
             </div>
         );
     }

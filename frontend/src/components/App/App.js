@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {BrowserRouter as Router, Link, Route, Switch} from 'react-router-dom';
 import './App.css';
 import Home from '../Home/Home';
@@ -10,40 +10,46 @@ import Navbar from '../Navbar/Navbar';
 import MainPage from "../MainPage/MainPage";
 import CompanyInfo from "../CompanyInfo/CompanyInfo";
 import Error from "../Error/Error";
+import {connect} from 'react-redux';
 
 
-function App() {
-    return (
-        <Router>
+class App extends Component {
+
+    render() {
+        return (
             <div>
-                <Navbar/>
-                <hr/>
-                <Switch>
+                <Router>
+                    <div>
+                        <Navbar/>
+                        <hr/>
+                        <Switch>
 
-                    <Route exact path="/" component={Home}/>
-                    <Route path="/login" component={Login}/>
-                    <Route path="/registration" component={Registration}/>
-                    <Route path="/faq" component={FAQ}/>
-                    <Route path="/team" component={Team}/>
-                    <Route path="/main" component={MainPage}/>
-                    <Route path="/company/:id" component={CompanyInfo}/>
-                    <Route component={Error}/>
+                            <Route exact path="/" component={Home}/>
+                            <Route path="/login" component={Login}/>
+                            <Route path="/registration" component={Registration}/>
+                            <Route path="/faq" component={FAQ}/>
+                            <Route path="/team" component={Team}/>
+                            <Route path="/main" component={MainPage}/>
+                            <Route path="/company/:id" component={CompanyInfo}/>
+                            <Route component={Error}/>
 
-                </Switch>
-                <footer id="footer">
-                    <hr/>
-                    <ul id="horizontal-list">
-                        <li>
-                            <Link to="/faq">FAQ</Link>
-                        </li>
-                        <li>
-                            <Link to="/team">Team</Link>
-                        </li>
-                    </ul>
-                </footer>
+                        </Switch>
+                        <footer id="footer">
+                            <hr/>
+                            <ul id="horizontal-list">
+                                <li>
+                                    <Link to="/faq">FAQ</Link>
+                                </li>
+                                <li>
+                                    <Link to="/team">Team</Link>
+                                </li>
+                            </ul>
+                        </footer>
+                    </div>
+                </Router>
             </div>
-        </Router>
-    );
+        );
+    }
 }
 
-export default App;
+export default connect()(App)

@@ -1,7 +1,7 @@
 import {COMPANIES} from "./actions";
 
 const initialState = {
-    companies: null
+    companies: []
 };
 
 export default function (oldState = initialState, action) {
