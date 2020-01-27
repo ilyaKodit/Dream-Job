@@ -68,7 +68,7 @@ router.post('/feed', async (req, res) => {
     rating: rating,
   });
   newFeed.save().then((data) => {
-    res.json(data._id);
+    res.json(data);
   });
 });
 
