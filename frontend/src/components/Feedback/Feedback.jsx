@@ -22,7 +22,8 @@ const Div1 = styled.div`
 
 class Feedback extends Component {
   constructor(props) {
-    super(props)
+    super(props);
+
     this.state = {
       interView: '',
       quest: '',
@@ -42,6 +43,7 @@ class Feedback extends Component {
   };
 
   toPressButton = async () => {
+
     let resp = await fetch('/feed', {
       method: 'POST',
       headers: {
@@ -49,7 +51,8 @@ class Feedback extends Component {
       },
       body: JSON.stringify({
         userId: sessionStorage.user,
-        companyId: 'this.props.id',
+
+        companyId: this.props.match.params.id,
         interView: this.state.interView,
         quest: this.state.quest,
         task: this.state.task,
@@ -58,6 +61,7 @@ class Feedback extends Component {
       })
     });
     let data = await resp.json();
+
     console.log(data);
     if (
       !this.state.interView.length == 0 &&
@@ -79,6 +83,7 @@ class Feedback extends Component {
         correct: !this.state.correct
       })
     }
+=
   };
 
   render() {

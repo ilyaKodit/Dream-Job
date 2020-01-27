@@ -12,5 +12,4 @@ const Companyschema = new Schema({
   count: Number,
 });
 
-
 module.exports = model('company', Companyschema);
