@@ -7,6 +7,8 @@ import Registration from "../Registration/Registration";
 import FAQ from '../FAQ/FAQ';
 import Team from '../Team/Team';
 import Navbar from '../Navbar/Navbar';
+import AddCompany from '../AddCompany/AddCompany';
+
 import MainPage from "../MainPage/MainPage";
 import CompanyInfo from "../CompanyInfo/CompanyInfo";
 import Error from "../Error/Error";
@@ -17,6 +19,10 @@ class App extends Component {
 
     render() {
         return (
+
+
+        <Router>
+
             <div>
                 <Router>
                     <div>
