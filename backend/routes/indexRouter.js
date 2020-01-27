@@ -8,10 +8,9 @@ const session = require('express-session');
 // const saltRounds = 10;
 const router = express.Router();
 
+
 const User = require('../models/user');
-
 const Feedback = require('../models/feedback');
-
 const Company = require('../models/company');
 
 router.get('/', async (req, res) => {
@@ -62,11 +61,19 @@ router.post('/reg', async (req, res) => {
   }
 });
 
+router.get('/feed', async (req, res) => {
+
+  let allFeedback = await Feedback.find();
+  res.json(allFeedback);
+});
+
 router.post('/feed', async (req, res) => {
-  console.log(req.body);
-  const { userId, interView, quest, task, contentText, rating } = req.body;
-  const newFeed = new Feedback({
+
+
+  const { userId, companyId, interView, quest, task, contentText, rating } = req.body;
+  let newFeed = new Feedback({
     userId,
+    companyId,
     interviewDate: interView,
     createDate: Date.now(),
     questions: quest,
@@ -74,6 +81,7 @@ router.post('/feed', async (req, res) => {
     contentText,
     rating,
   });
+
   newFeed.save().then(data => {
     res.json(data._id);
   });

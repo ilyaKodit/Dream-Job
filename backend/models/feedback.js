@@ -9,10 +9,7 @@ const FeedbackSchema = new Schema({
   tasks: String,
   contentText: String,
   rating: Number,
-  companyId: {
-    type: ObjectId,
-    ref: 'company',
-  },
+  companyId: String,
   userId: {
     type: ObjectId,
     ref: 'user',
