@@ -26,7 +26,7 @@ class CompanyPage extends Component {
         return (
             <div onClick={this.onClick} className={'company'} data-id={this.props.company.id}>
 
-                <img data-id={this.props.company.id} src={this.props.company.image} alt=""/>
+                <img className={'image'} data-id={this.props.company.id} src={this.props.company.image} alt=""/>
                 <p data-id={this.props.company.id}>{this.props.company.name}</p>
                 <p data-id={this.props.company.id}>Рейтинг: {this.props.company.averageRating}/5</p>
                 <p data-id={this.props.company.id}>Комментарии: {this.props.company.count}</p>

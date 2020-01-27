@@ -1,6 +1,52 @@
 .company{
-    height: 200px;
-    width: 200px;
-    background-color: lightgray;
+    height: 250px;
+    width: 250px;
     margin: 20px;
+    /*border: 2px solid #CC4E46;*/
+    background-color: #e9e9e9;
+    border-radius: 10px;
+    box-shadow: 0 15px 25px #85332f;
+    color: #CC4E46;
+    font-size: 20px;
 }
+
+.company:hover{
+    background-color: white;
+}
+
+.company > p {
+    margin: 0 10px;
+    text-align: center;
+}
+
+.company > p:nth-child(2){
+    color: #cc3c31;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.image {
+    /*border-radius: 50%;*/
+    display: block;
+    margin: 40px auto;
+    max-height: 50px;
+    max-width: 100px;
+}
+
+.image{
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray;
+}
+.image:hover {
+    -webkit-filter: none;
+    -moz-filter: none;
+    -ms-filter: none;
+    -o-filter: none;
+    filter: none;
+    filter: none;
+}
+
