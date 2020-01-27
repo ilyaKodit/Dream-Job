@@ -28,7 +28,7 @@ function App() {
 
           <Route path="/registration"><Registration /></Route>
           <Route path="/test"><AddCompanyPage /></Route>
-          <Route path='/company/:id?' component={AddCompanyPage}/>
+          <Route path='/add/employer/:id?' component={AddCompanyPage}/>
 
           <Route path="/faq">
             <FAQ />
