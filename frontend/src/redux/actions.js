@@ -1,4 +1,5 @@
-const TEST ='TEST';
+const COMPANIES ='COMPANIES';
+const FEEDBACK = 'FEEDBACK';
 
 
-export {TEST}
+export {COMPANIES, FEEDBACK}

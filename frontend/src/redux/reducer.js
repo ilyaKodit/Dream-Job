@@ -1,14 +1,22 @@
-import {TEST} from "./actions";
+import {COMPANIES, FEEDBACK} from "./actions";
 
 const initialState = {
-    test: ''
+    companies: [],
+    feedback: []
 };
 
 export default function (oldState = initialState, action) {
     switch (action.type) {
-        case TEST:
+        case COMPANIES:
             return {
-                test: action.data,
+                companies: action.data,
+                feedback: oldState.feedback
+            };
+
+        case FEEDBACK:
+            return {
+                companies: oldState.companies,
+                feedback: action.data
             };
 
         default:

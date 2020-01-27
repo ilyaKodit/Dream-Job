@@ -1,8 +1,15 @@
-import {TEST} from "./actions";
+import {COMPANIES, FEEDBACK} from "./actions";
 
-export const Refresh = (data) => {
+export const LoadingCompanies = (data) => {
     return {
-        type: TEST,
+        type: COMPANIES,
+        data: data,
+    }
+};
+
+export const LoadingFeedback = (data) => {
+    return {
+        type: FEEDBACK,
         data: data,
     }
 };
