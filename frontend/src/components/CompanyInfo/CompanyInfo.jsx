@@ -11,13 +11,12 @@ class CompanyInfo extends Component {
         super(props);
 
         this.state = {
-            company: null
+            company: null,
+            checked: false
         }
     }
 
     componentDidMount = async () => {
-
-        console.log(this.props.match.params.id);
 
         let resp = await fetch('/companies');
         let data = await resp.json();
@@ -27,14 +26,19 @@ class CompanyInfo extends Component {
 
             if (company.id === this.props.match.params.id) {
                 this.setState({
-                    company: company
+                    company: company,
+                    input: this.state.input
                 })
             }
         });
     };
 
     onClick = (event) => {
-        //тут будет код, который переведёт на страницу написания отзыва
+
+        this.setState({
+            company: this.state.company,
+            input: !this.state.input
+        })
     };
 
     render() {
@@ -44,7 +48,6 @@ class CompanyInfo extends Component {
                 {
                     this.state.company ?
                         <div>
-
                             <img src={this.state.company.image} alt=""/>
                             <span>{this.state.company.name}</span>
                             {this.state.company.site_url && <p>Сайт: <Link to={this.state.company.site_url}></Link></p>}
@@ -52,10 +55,14 @@ class CompanyInfo extends Component {
                             <p>Отзывов: {this.state.company.count}</p>
                             <br/>
                             <input onClick={this.onClick} type="submit" value={'Написать отзыв'}/>
+
+
+
                         </div>
                         : <div>Spiner</div>
                 }
 
+                {this.state.input && <Redirect to={`/feedback/${this.state.company.id}`}/>}
                 {!sessionStorage.user && <Redirect to="/login"/>}
             </div>
         );

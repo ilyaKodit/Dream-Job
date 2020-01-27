@@ -8,7 +8,7 @@ import FAQ from '../FAQ/FAQ';
 import Team from '../Team/Team';
 import Navbar from '../Navbar/Navbar';
 import AddCompany from '../AddCompany/AddCompany';
-
+import Feedback from "../Feedback/Feedback";
 import MainPage from "../MainPage/MainPage";
 import CompanyInfo from "../CompanyInfo/CompanyInfo";
 import Error from "../Error/Error";
@@ -19,10 +19,6 @@ class App extends Component {
 
     render() {
         return (
-
-
-        <Router>
-
             <div>
                 <Router>
                     <div>
@@ -37,6 +33,7 @@ class App extends Component {
                             <Route path="/team" component={Team}/>
                             <Route path="/main" component={MainPage}/>
                             <Route path="/company/:id" component={CompanyInfo}/>
+                            <Route path="/feedback/:id" component={Feedback}/>
                             <Route component={Error}/>
 
                         </Switch>
