@@ -28,7 +28,7 @@ class CompanyPage extends Component {
 
                 <img data-id={this.props.company.id} src={this.props.company.image} alt=""/>
                 <p data-id={this.props.company.id}>{this.props.company.name}</p>
-                <p data-id={this.props.company.id}>Рейтинг: {this.props.company.averageRating}</p>
+                <p data-id={this.props.company.id}>Рейтинг: {this.props.company.averageRating}/5</p>
                 <p data-id={this.props.company.id}>Комментарии: {this.props.company.count}</p>
 
                 {this.state.id && <Redirect to={`company/${this.state.id}`}/>}
