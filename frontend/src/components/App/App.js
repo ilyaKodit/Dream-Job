@@ -9,7 +9,7 @@ import Registration from "../Registration/Registration";
 import FAQ from '../FAQ/FAQ';
 import Team from '../Team/Team';
 import Navbar from '../Navbar/Navbar';
-import AddCompany from '../AddCompany/AddCompany';
+import AddCompanyPage from '../AddCompany/AddCompanyPage';
 
 
 function App() {
@@ -27,7 +27,8 @@ function App() {
           </Route>
 
           <Route path="/registration"><Registration /></Route>
-          <Route path="/test"><AddCompany /></Route>
+          <Route path="/test"><AddCompanyPage /></Route>
+          <Route path='/company/:id?' component={AddCompanyPage}/>
 
           <Route path="/faq">
             <FAQ />
