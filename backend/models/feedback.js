@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema, model, ObjectId } = mongoose;
 
-const Feedbackschema = new Schema({
+const FeedbackSchema = new Schema({
   interviewDate: Date,
   createDate: Date,
   questions: String,
@@ -11,13 +11,12 @@ const Feedbackschema = new Schema({
   rating: Number,
   companyId: {
     type: ObjectId,
-    ref: 'company'
+    ref: 'company',
   },
   userId: {
     type: ObjectId,
-    ref: 'user'
+    ref: 'user',
   },
 });
 
-
-module.exports = model('feedback', Feedbackschema);
+module.exports = model('Feedback', FeedbackSchema);
