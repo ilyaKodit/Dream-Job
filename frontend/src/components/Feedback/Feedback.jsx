@@ -83,7 +83,6 @@ class Feedback extends Component {
         correct: !this.state.correct
       })
     }
-=
   };
 
   render() {
