@@ -3,7 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const session = require('express-session');
 
-// const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');
 // const { sessionChecker } = require('../middleware/auth');
 // const saltRounds = 10;
 const router = express.Router();
@@ -26,8 +26,9 @@ router.get('/companies', async (req, res) => {
 router.post('/log', async (req, res) => {
   const { login, password } = req.body;
   const newUser = await User.findOne({ login });
-
-  if (newUser && newUser.password === password) {
+    // console.log(newUser);
+    if (newUser && (await bcrypt.compare(password, newUser.password))) {
+  // if (newUser && newUser.password === password) {
     // req.session.user = newUser;
     res.json({ id: newUser._id, login: newUser.login });
   }
