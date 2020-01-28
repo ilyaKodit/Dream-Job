@@ -1,0 +1,6 @@
+.row {
+    display: flex;
+}
+.col {
+    flex-grow: 1;
+}

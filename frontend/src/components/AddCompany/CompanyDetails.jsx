@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {Redirect} from 'react-router-dom';
 
+import './CompanyDetails.css'
+
 import Spinner from "../spinner/spinner";
 
 export default class CompanyDetails extends Component {
@@ -103,28 +105,36 @@ export default class CompanyDetails extends Component {
       null;
 
     const viewCity = city ?
-      <li className="list-group-item">
-        <span>{city}</span>
-      </li> :
+      <div className="content">
+        {city}
+      </div> :
       null;
 
     const viewSite = site_url ?
-      <li className="list-group-item">
-        <span>{`Сайт: ${site_url}`}</span>
-      </li> :
+      <div className="content">
+        {`Сайт: ${site_url}`}
+      </div> :
       null;
 
     return (
       <div className="company-details card">
-        {viewLogo}
-        <div className="card-body">
-          <h4>{name}</h4>
-          <ul className="list-group list-group-flush">
-            {viewCity}
-            {viewSite}
-          </ul>
+        {/*<div className="card-body">*/}
+        {/*  <h4>{name}</h4>*/}
+        {/*  <ul className="list-group list-group-flush">*/}
+        {/*    {viewCity}*/}
+        {/*    {viewSite}*/}
+        {/*  </ul>*/}
+        {/*</div>*/}
+
+        <div className="ui raised very padded text container segment">
+          {viewLogo}
+          <h2 className="ui header">{name}</h2>
+          {viewCity}
+          {viewSite}
+          <button className='ui primary button' onClick={() => this.onAddClick(newCompany)}>Отправить</button>
+
         </div>
-        <button onClick={() => this.onAddClick(newCompany)}>Добавить компанию</button>
+
         {this.state.loadingDB && <Redirect to={`/company/${id}`}/>}
       </div>
     )
