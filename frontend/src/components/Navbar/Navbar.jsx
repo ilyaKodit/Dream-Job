@@ -23,7 +23,7 @@ class Navbar extends Component {
                     <Link className={'nav_item'} to={'/'}>Home</Link>
                     {sessionStorage.user && <Link className={'nav_item'} to={'/main'}>Companies</Link>}
                 </div>
-                <div className={'logo'}>
+                <div className={'logoName'}>
                     Dream Job
                 </div>
                 <div>
