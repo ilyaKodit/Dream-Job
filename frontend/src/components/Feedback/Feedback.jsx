@@ -13,6 +13,7 @@ const Input = styled.input`
 const Button = styled.button`
   color: red;
   background-color: yellow;
+  margin:20px;
 `
 const Div1 = styled.div`
   font-size: 25px;
@@ -31,7 +32,8 @@ class Feedback extends Component {
       contentText: '',
       rating: '',
       result: false,
-      correct: false
+      correct: false,
+      buttonBack: false,
     }
   };
 
@@ -64,11 +66,11 @@ class Feedback extends Component {
 
     console.log(data);
     if (
-      !this.state.interView.length == 0 &&
-      !this.state.quest.length == 0 &&
-      !this.state.task.length == 0 &&
-      !this.state.contentText.length == 0 &&
-      !this.state.rating.length == 0
+      this.state.interView.length  &&
+      this.state.quest.length  &&
+      this.state.task.length  &&
+      this.state.contentText.length  &&
+      this.state.rating.length 
     ) {
       this.setState({
         interView: '',
@@ -84,6 +86,12 @@ class Feedback extends Component {
       })
     }
   };
+
+  toPressButtonBack = () => {
+    this.setState({
+      buttonBack: true,
+    })
+  } 
 
   render() {
     return (
@@ -106,7 +114,9 @@ class Feedback extends Component {
           Оценка компании <input onChange={this.onChangeGlobal('rating')} type='number' placeholder='tasks' value={this.state.rating} />
         </Div>
         <Button onClick={this.toPressButton}>Оставить отзыв</Button>
+        <Button onClick={this.toPressButtonBack}>Назад</Button>
         {this.state.correct && <Div1>Заполните все поля</Div1>}
+        {this.state.buttonBack && <Redirect to={`/company/${this.props.match.params.id}`} />}
         {this.state.result && <Redirect to={`/company/${this.props.match.params.id}`} />}
         {!sessionStorage.user && <Redirect to="/main" />}
       </>
