@@ -1,7 +1,3 @@
-.item-list .list-group-item {
-    cursor: pointer;
-}
-
-.item-list .list-group-item:hover {
-    background-color: #444;
+input {
+    margin-bottom: 5px;
 }
