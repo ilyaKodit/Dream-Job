@@ -22,7 +22,6 @@ class Navbar extends Component {
                 <div>
                     <Link className={'nav_item'} to={'/'}>Home</Link>
                     {sessionStorage.user && <Link className={'nav_item'} to={'/main'}>Companies</Link>}
-                    {!sessionStorage.user && <Link className={'nav_item'} to={'/add/employer/'}>Employer</Link>}
                 </div>
                 <div className={'logoName'}>
                     Dream Job

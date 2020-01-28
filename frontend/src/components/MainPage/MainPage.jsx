@@ -6,6 +6,14 @@ import { Link, Redirect } from 'react-router-dom';
 import {connect} from 'react-redux';
 import {LoadingCompanies} from "../../redux/creators";
 
+const styles = {
+    button: {
+        background: '#CC4E46',
+        color: 'white',
+        fontSize: '16px',
+        marginLeft: '40px'
+    },
+};
 
 class MainPage extends Component {
 
@@ -19,8 +27,19 @@ class MainPage extends Component {
     render() {
         return (
             <>
-                <div>
-                    {sessionStorage.user && <Link to={'/add/employer/'}>Employer</Link>}
+                <div className={'mainPage_cont'}>
+                    <div className="ui icon input">
+                        <input type="text" placeholder="Поиск компании"/>
+                        <i className="search icon"></i>
+                    </div>
+                    <Link to={'/add/employer/'} className="ui animated button" style={styles.button} tabIndex="0">
+                        <div className="visible content">Add company</div>
+                        <div className="hidden content">
+                            <i className="right plus icon"></i>
+                        </div>
+                    </Link>
+
+                    {/*<Link to={'/add/employer/'}>Employer</Link>*/}
                 </div>
                 <div className={'container'}>
 
