@@ -26,9 +26,9 @@ router.get('/companies', async (req, res) => {
 router.post('/log', async (req, res) => {
   const { login, password } = req.body;
   const newUser = await User.findOne({ login });
-    // console.log(newUser);
-    if (newUser && (await bcrypt.compare(password, newUser.password))) {
-  // if (newUser && newUser.password === password) {
+  // console.log(newUser);
+  if (newUser && (await bcrypt.compare(password, newUser.password))) {
+    // if (newUser && newUser.password === password) {
     // req.session.user = newUser;
     res.json({ id: newUser._id, login: newUser.login });
   }
@@ -56,8 +56,8 @@ router.post('/reg', async (req, res) => {
     //     res.status(200).send("Welcome to the club!");
     //   }
 
-    newUser.save().then(data => {
-      res.json(data._id);
+    newUser.save().then((data) => {
+      res.json(data);
     });
   }
 });
