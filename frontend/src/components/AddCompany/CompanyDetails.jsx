@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Redirect} from 'react-router-dom';
 
 import Spinner from "../spinner/spinner";
 
@@ -7,12 +8,13 @@ export default class CompanyDetails extends Component {
   state = {
     company: null,
     loading: false,
+    loadingDB: false,
     error: false,
   };
 
-  componentDidMount() {
-    this.updateCompany();
-  }
+  // componentDidMount() {
+  //   this.updateCompany();
+  // }
 
   componentDidUpdate(prevProps) {
     if (this.props.companyId !== prevProps.companyId){
@@ -50,6 +52,21 @@ export default class CompanyDetails extends Component {
       .catch(this.onError)
   }
 
+  onAddClick = async (obj) => {
+    let resp = await fetch('/add/employer', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(obj)
+    });
+    let data = await resp.json();
+    this.setState({
+      loadingDB: true,
+    });
+    console.log(data);
+  };
+
   render() {
 
     if (this.state.loading) {
@@ -64,7 +81,7 @@ export default class CompanyDetails extends Component {
       id, name, logo_urls = null, area = null, site_url = null
     }} = this.state;
 
-    const image = (logo_urls ? logo_urls["90"] : '') || '';
+    const image = (logo_urls ? logo_urls["240"] : '') || '';
     const city = (area ? area["name"] : '') || '';
     site_url = site_url || '';
 
@@ -87,7 +104,7 @@ export default class CompanyDetails extends Component {
 
     const viewCity = city ?
       <li className="list-group-item">
-        <span>{`Город: ${city}`}</span>
+        <span>{city}</span>
       </li> :
       null;
 
@@ -107,7 +124,8 @@ export default class CompanyDetails extends Component {
             {viewSite}
           </ul>
         </div>
-        <button onClick={() => console.log(newCompany)}>Добавить компанию</button>
+        <button onClick={() => this.onAddClick(newCompany)}>Добавить компанию</button>
+        {this.state.loadingDB && <Redirect to={`/company/${id}`}/>}
       </div>
     )
   };

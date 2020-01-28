@@ -8,7 +8,6 @@ import FAQ from '../FAQ/FAQ';
 import Team from '../Team/Team';
 import Navbar from '../Navbar/Navbar';
 import AddCompanyPage from '../AddCompany/AddCompanyPage';
-import AddCompany from '../AddCompany/AddCompany';
 import Feedback from "../Feedback/Feedback";
 import MainPage from "../MainPage/MainPage";
 import CompanyInfo from "../CompanyInfo/CompanyInfo";

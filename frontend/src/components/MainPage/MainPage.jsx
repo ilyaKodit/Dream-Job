@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import './MainPage.css'
 import CompanyPage from "../CompanyPage/CompanyPage";
-import {Redirect} from "react-router-dom";
+import { Link, Redirect } from 'react-router-dom';
 import {connect} from 'react-redux';
 import {LoadingCompanies} from "../../redux/creators";
 
@@ -19,6 +19,7 @@ class MainPage extends Component {
     render() {
         return (
             <div className={'container'}>
+                {sessionStorage.user && <Link to={'/add/employer/'}>Employer</Link>}
                 {
                     this.props.companies ?
                         this.props.companies.map((company) => {
