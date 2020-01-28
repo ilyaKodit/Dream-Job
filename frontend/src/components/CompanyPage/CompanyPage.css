@@ -1,13 +1,12 @@
 .company{
-    height: 250px;
-    width: 250px;
-    margin: 15px;
+    height: 280px;
+    width: 280px;
+    margin: 12px;
     /*border: 2px solid #CC4E46;*/
     background-color: #f3f3f3;
     border-radius: 10px;
     box-shadow: 0 15px 25px #c2c2c2;
     color: #CC4E46;
-    font-size: 20px;
 }
 
 .company:hover{
@@ -15,20 +14,28 @@
 }
 
 .company > p {
+    font-size: 16px;
     margin: 0 10px;
     text-align: center;
 }
 
 .company > p:nth-child(2){
-    /* color: #cc3c31; */
+    color: #b0352c;
     font-size: 22px;
     margin-bottom: 10px;
+    /*font-weight: 600;*/
+}
+
+.image_cont {
+    height: 100px;
+    width: 100px;
+    margin: 30px auto;
 }
 
 .image {
     /*border-radius: 50%;*/
     display: block;
-    margin: 40px auto;
+    margin: 0 auto;
     max-height: 100px;
     max-width: 100px;
 }
@@ -41,7 +48,8 @@
     filter: grayscale(100%);
     filter: gray;
 }
-.image:hover {
+
+.imageColor{
     -webkit-filter: none;
     -moz-filter: none;
     -ms-filter: none;
@@ -49,4 +57,3 @@
     filter: none;
     filter: none;
 }
-

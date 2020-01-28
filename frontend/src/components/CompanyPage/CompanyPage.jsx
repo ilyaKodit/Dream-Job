@@ -22,11 +22,29 @@ class CompanyPage extends Component {
         })
     };
 
+    onMouseOver = (event) => {
+        let allImage = document.querySelectorAll('.image');
+        allImage.forEach((image) => {
+            if (image.dataset.id === event.target.dataset.id){
+                image.classList.toggle('imageColor');
+            }
+        });
+    };
+    onMouseOut = (event) => {
+        let allImage = document.querySelectorAll('.image');
+        allImage.forEach((image) => {
+            if (image.dataset.id === event.target.dataset.id){
+                image.classList.toggle('imageColor');
+            }
+        });
+    };
+
     render() {
         return (
-            <div onClick={this.onClick} className={'company'} data-id={this.props.company.id}>
-
-                <img className={'image'} data-id={this.props.company.id} src={this.props.company.image} alt=""/>
+            <div onClick={this.onClick} onMouseOver={this.onMouseOver} onMouseOut={this.onMouseOut} className={'company'} data-id={this.props.company.id}>
+                <div data-id={this.props.company.id} className={'image_cont'}>
+                    <img className={'image'} data-id={this.props.company.id} src={this.props.company.image} alt=""/>
+                </div>
                 <p data-id={this.props.company.id}>{this.props.company.name}</p>
                 <p data-id={this.props.company.id}>Рейтинг: {this.props.company.averageRating}/5</p>
                 <p data-id={this.props.company.id}>Комментарии: {this.props.company.count}</p>
