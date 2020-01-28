@@ -8,11 +8,11 @@
   margin: 10px;
   text-decoration: none;
   font-size: 30px;
-  color :#CC4E46 ;
+  color: #CC4E46;
 }
 
 .nav_item:hover {
-  color: white;
+  color: #ff6255;
 }
 
 .logo {
@@ -21,7 +21,7 @@
   /*left: 42%;*/
   color: #CC4E46;
   font-size: 45px;
-  padding: 5px;
+  padding: 5px 15px;
   border: 3px solid #CC4E46;
   border-radius: 5px;
 }
@@ -30,6 +30,6 @@
   margin: 10px 30px;
   font-size: 30px;
   /*color: #682827;*/
-  color: #e9e9e9;
+  color: #CC4E46;
 }
 
