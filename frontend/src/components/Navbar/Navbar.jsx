@@ -22,7 +22,6 @@ class Navbar extends Component {
                 <div>
                     <Link className={'nav_item'} to={'/'}>Home</Link>
                     {sessionStorage.user && <Link className={'nav_item'} to={'/main'}>Companies</Link>}
-                    {!sessionStorage.user && <Link className={'nav_item'} to={'/add/employer/'}>Employer</Link>}
                 </div>
                 <div className={'logo'}>
                     Dream Job
@@ -30,8 +29,8 @@ class Navbar extends Component {
                 <div>
                     {sessionStorage.user && <span className={'userName'}>{sessionStorage.name}</span>}
                     {sessionStorage.user && <Link onClick={this.logout} to={'/'} className={'nav_item'}>Logout</Link>}
-                    {!sessionStorage.user && <Link className={'nav_item'} to={'/login'}>Log In</Link>}
-                    {!sessionStorage.user && <Link className={'nav_item'} to={'/registration'}>Registration</Link>}
+                    {!sessionStorage.user && <Link className={'nav_item'} to={'/login'}>Sign In</Link>}
+                    {!sessionStorage.user && <Link className={'nav_item'} to={'/registration'}>Sign Up</Link>}
                 </div>
 
             </div>
