@@ -13,6 +13,9 @@ const styles = {
         fontSize: '16px',
         marginLeft: '40px'
     },
+    input: {
+        textAlign: 'center'
+    }
 };
 
 class MainPage extends Component {
@@ -29,7 +32,7 @@ class MainPage extends Component {
             <>
                 <div className={'mainPage_cont'}>
                     <div className="ui icon input">
-                        <input type="text" placeholder="Поиск компании"/>
+                        <input style={styles.input} type="text" placeholder="Поиск компании"/>
                         <i className="search icon"></i>
                     </div>
                     <Link to={'/add/employer/'} className="ui animated button" style={styles.button} tabIndex="0">
