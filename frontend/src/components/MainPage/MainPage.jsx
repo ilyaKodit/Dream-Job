@@ -18,18 +18,24 @@ class MainPage extends Component {
 
     render() {
         return (
-            <div className={'container'}>
-                {sessionStorage.user && <Link to={'/add/employer/'}>Employer</Link>}
-                {
-                    this.props.companies ?
-                        this.props.companies.map((company) => {
-                            return <CompanyPage key={company.id} company={company}/>
-                        })
-                        : <div>Не добавлено ни одной компании</div>
-                }
+            <div>
+                <div>
+                    {sessionStorage.user && <Link to={'/add/employer/'}>Employer</Link>}
+                </div>
+                <div className={'container'}>
 
-                {!sessionStorage.user && <Redirect to="/login"/>}
+                    {
+                        this.props.companies ?
+                            this.props.companies.map((company) => {
+                                return <CompanyPage key={company.id} company={company}/>
+                            })
+                            : <div>Не добавлено ни одной компании</div>
+                    }
+
+                    {!sessionStorage.user && <Redirect to="/login"/>}
+                </div>
             </div>
+
         );
     }
 }
