@@ -2,6 +2,17 @@ import React, { Component } from 'react';
 
 // import {connect} from 'react-redux';
 import { Redirect } from "react-router-dom";
+import './Login.css';
+
+
+const styled = {
+  button: {
+    color: 'white',
+    background: '#CC4E46',
+    fontSize: '16px',
+    
+  }
+};
 
 class Login extends Component {
   constructor(props) {
@@ -52,23 +63,28 @@ class Login extends Component {
   render() {
     return (
       <>
-        <div
-          style={{ margin: 10 }}>
-          <input
-            placeholder='enter login'
-            onChange={event => this.InputValueLogin(event.target.value)}
-            value={this.state.login} >
-          </input>
+        <p className='teg'></p>
+        <div className="ui form container1">
+          <div className="field ui right icon input">
+            <input placeholder='Введите логин' onChange={event => this.InputValueLogin(event.target.value)} value={this.state.login} >
+            </input>
+            <i className="icon user outline"></i>
+          </div>
+          <div className="field ui right icon input">
+            <input placeholder='Введите пароль' onChange={event => this.InputValuePassword(event.target.value)} value={this.state.password} >
+            </input>
+            <i className="icon lock"></i>
+          </div>
         </div>
-        <input style={{ margin: 10 }}
-          placeholder='enter password'
-          onChange={event => this.InputValuePassword(event.target.value)}
-          value={this.state.password} >
-        </input>
-        <button onClick={this.buttonPush}>PUSH</button>
-
-        {sessionStorage.user && <Redirect to="/main"/>}
-
+        <div className="button_div">
+          <div style={styled.button} onClick={this.buttonPush} className="ui animated button" tabindex="0">
+            <div className="visible content">Войти</div>
+            <div className="hidden content">
+              <i className="right arrow icon"></i>
+            </div>
+          </div>
+        </div>
+        {sessionStorage.user && <Redirect to="/main" />}
       </>
     )
   }
