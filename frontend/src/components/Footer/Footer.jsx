@@ -5,7 +5,7 @@ import './Footer.css'
 
 function Footer(props) {
   return (
-    <div id="footer">
+    <footer>
       <ul id="horizontal-list">
         <li>
           <Link to="/faq">FAQ</Link>
@@ -14,7 +14,7 @@ function Footer(props) {
           <Link to="/team">Team</Link>
         </li>
       </ul>
-    </div>
+    </footer>
   );
 }
 
