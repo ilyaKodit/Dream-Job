@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './CompanyInfo.css';
 
-import {Link, Redirect} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {LoadingCompanies, LoadingFeedback} from "../../redux/creators";
 
@@ -69,15 +69,14 @@ class CompanyInfo extends Component {
                 {
                     this.state.company ?
                         <div>
-                            <div>
+                            <div className={'companyInfo_img_cont'}>
                                 <img className={'companyInfo_img'} src={this.state.company.image} alt=""/>
                             </div>
 
-                            <p>{this.state.company.name}</p>
-                            {this.state.company.site_url && <p><Link to={this.state.company.site_url}>Сайт</Link></p>}
-                            <p>Рейтинг: {this.state.company.averageRating}/5</p>
-                            <p>Отзывов: {this.state.company.count}</p>
-                            <br/>
+                            <p className={'companyInfo_title'}>{this.state.company.name}</p>
+                            {this.state.company.site_url && <p><a className={'companyInfo_a'} href={this.state.company.site_url}>Сайт</a></p>}
+                            <p className={'companyInfo_p'}>Рейтинг: {this.state.company.averageRating}/5</p>
+                            <p className={'companyInfo_p'}>Отзывов: {this.state.company.count}</p>
                             <input onClick={this.onClick} type="submit" value={'Написать отзыв'}/>
 
                             {
