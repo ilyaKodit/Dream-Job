@@ -13,6 +13,7 @@ import MainPage from "../MainPage/MainPage";
 import CompanyInfo from "../CompanyInfo/CompanyInfo";
 import Error from "../Error/Error";
 import {connect} from 'react-redux';
+import Footer from '../Footer/Footer';
 
 
 class App extends Component {
@@ -41,17 +42,7 @@ class App extends Component {
                             <Route component={Error}/>
 
                         </Switch>
-                        <footer id="footer">
-                            {/*<hr/>*/}
-                            <ul id="horizontal-list">
-                                <li>
-                                    <Link to="/faq">FAQ</Link>
-                                </li>
-                                <li>
-                                    <Link to="/team">Team</Link>
-                                </li>
-                            </ul>
-                        </footer>
+                        <Footer/>
                     </div>
                 </Router>
             </div>
