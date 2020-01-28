@@ -1,20 +1,6 @@
-#footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 2.5rem;
-    /* Footer height */
+footer {
+    flex-shrink: 0;
 }
-
-/* ul#horizontal-list {
-  min-width: 696px;
-  list-style: none;
-  padding-top: 20px;
-}
-
-ul#horizontal-list li {
-  display: inline;
-} */
 
 #horizontal-list {
     list-style: none;

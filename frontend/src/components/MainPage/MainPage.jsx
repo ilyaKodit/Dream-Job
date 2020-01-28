@@ -18,7 +18,7 @@ class MainPage extends Component {
 
     render() {
         return (
-            <div>
+            <>
                 <div>
                     {sessionStorage.user && <Link to={'/add/employer/'}>Employer</Link>}
                 </div>
@@ -34,7 +34,7 @@ class MainPage extends Component {
 
                     {!sessionStorage.user && <Redirect to="/login"/>}
                 </div>
-            </div>
+            </>
 
         );
     }
