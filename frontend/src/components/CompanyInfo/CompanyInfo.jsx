@@ -64,14 +64,17 @@ class CompanyInfo extends Component {
 
     render() {
         return (
-            <div>
+            <div className={'companyInfo_cont'}>
 
                 {
                     this.state.company ?
                         <div>
-                            <img src={this.state.company.image} alt=""/>
-                            <span>{this.state.company.name}</span>
-                            {this.state.company.site_url && <p>Сайт: <Link to={this.state.company.site_url}></Link></p>}
+                            <div>
+                                <img className={'companyInfo_img'} src={this.state.company.image} alt=""/>
+                            </div>
+
+                            <p>{this.state.company.name}</p>
+                            {this.state.company.site_url && <p><Link to={this.state.company.site_url}>Сайт</Link></p>}
                             <p>Рейтинг: {this.state.company.averageRating}/5</p>
                             <p>Отзывов: {this.state.company.count}</p>
                             <br/>

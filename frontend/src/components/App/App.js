@@ -23,8 +23,11 @@ class App extends Component {
             <div>
                 <Router>
                     <div>
-                        <Navbar/>
-                        <hr/>
+                        <header>
+                            <Navbar/>
+                        </header>
+
+                        {/*<hr/>*/}
                         <Switch>
 
                             <Route exact path="/" component={Home}/>
@@ -40,7 +43,7 @@ class App extends Component {
 
                         </Switch>
                         <footer id="footer">
-                            <hr/>
+                            {/*<hr/>*/}
                             <ul id="horizontal-list">
                                 <li>
                                     <Link to="/faq">FAQ</Link>

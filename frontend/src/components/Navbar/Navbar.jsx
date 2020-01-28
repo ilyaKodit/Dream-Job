@@ -19,12 +19,21 @@ class Navbar extends Component {
   render() {
     return (
       <div className={'nav'}>
-        <Link className={'nav_item'} to={'/'}>Home</Link>
-        {sessionStorage.user && <Link className={'nav_item'} to={'/main'}>Companies</Link>}
-        {sessionStorage.user && <Link onClick={this.logout} to={'/'} className={'nav_item'}>Logout</Link>}
-        {!sessionStorage.user && <Link className={'nav_item'} to={'/login'}>Log In</Link>}
-        {!sessionStorage.user && <Link className={'nav_item'} to={'/registration'}>Registration</Link>}
-        {!sessionStorage.user && <Link className={'nav_item'} to={'/add/employer/'}>Employer</Link>}
+
+        <div>
+          <Link className={'nav_item'} to={'/'}>Home</Link>
+          {sessionStorage.user && <Link className={'nav_item'} to={'/main'}>Companies</Link>}
+          {!sessionStorage.user && <Link className={'nav_item'} to={'/add/employer/'}>Employer</Link>}
+        </div>
+        <div>
+          Logo
+        </div>
+        <div>
+          {sessionStorage.user && <Link onClick={this.logout} to={'/'} className={'nav_item'}>Logout</Link>}
+          {!sessionStorage.user && <Link className={'nav_item'} to={'/login'}>Log In</Link>}
+          {!sessionStorage.user && <Link className={'nav_item'} to={'/registration'}>Registration</Link>}
+        </div>
+
       </div>
     );
   }
