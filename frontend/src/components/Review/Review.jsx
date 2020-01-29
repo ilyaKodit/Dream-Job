@@ -7,7 +7,7 @@ const styles = {
         marginTop: '20px'
     },
     group1: {
-        marginTop: '-3px',
+        marginTop: '-4px',
     },
     group1_item: {
         width: '33%'
@@ -36,11 +36,24 @@ class Review extends Component {
         document.querySelector(`.id${event.target.dataset.id}`).classList.toggle('open');
     };
 
+    getDate = () => {
+        let date = new Date(this.props.data.interviewDate);
+
+        let day = date.getDate();
+        let month = date.getMonth() + 1;
+        let year = date.getFullYear();
+
+        if (month < 10) {
+            month = `0${month}`;
+        }
+
+        return `${day}.${month}.${year}`;
+    };
+
     render() {
         return (
             <div>
                 <div onClick={this.onClick} data-id={this.props.data._id} style={styles.cont} className={`ui segment review_cont id${this.props.data._id}`}>
-
 
                     <div style={styles.group1} className="ui horizontal segments">
 
@@ -53,7 +66,7 @@ class Review extends Component {
                         </div>
 
                         <div data-id={this.props.data._id} style={styles.group1_item} className="ui segment">
-                            <p style={styles.title_text} data-id={this.props.data._id}>{this.props.data.interviewDate}</p>
+                            <p style={styles.title_text} data-id={this.props.data._id}>{this.getDate()}</p>
                         </div>
 
                     </div>
@@ -89,3 +102,4 @@ class Review extends Component {
 }
 
 export default connect()(Review)
+
