@@ -12,13 +12,14 @@ import MainPage from '../MainPage/MainPage';
 import CompanyInfo from '../CompanyInfo/CompanyInfo';
 import Error from '../Error/Error';
 import { connect } from 'react-redux';
+
 import Footer from '../Footer/Footer';
 import Navbar from '../Navbar/Navbar';
 import Main from '../Main/Main';
 
 
 class App extends Component {
-
+  
   render() {
     return (
       <div className="wrapper">
