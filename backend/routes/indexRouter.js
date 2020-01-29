@@ -97,13 +97,13 @@ router.post('/feed', async (req, res) => {
 router.post('/add/employer', async (req, res) => {
   console.log(req.body);
   const existenceCompany = await Company.findOne({ id: req.body.id });
-  // const { id, name, image, site_url, city, averageRating, count } = req.body;
   if (!existenceCompany) {
     let newEmployer = new Company(req.body);
-    newEmployer.save().then((data) => {
-      res.json(data);
-    });
+    newEmployer.save()
+      .then(res.json({status: 'Успешно добавлено'}))
+      .catch(res.json({status: 'Ошибка при сохранении в базу данных'}))
   }
+  await res.json({status: 'Уже добавлено ёпта'});
 });
 
 module.exports = router;
