@@ -4,6 +4,23 @@ import {Redirect} from 'react-router-dom';
 import './CompanyDetails.css'
 
 import Spinner from "../spinner/spinner";
+import ErrorIndicator from '../ErrorIndicator/ErrorIndicator';
+
+const styles = {
+  button: {
+    background: '#CC4E46',
+    display: 'block',
+    color: 'white',
+    fontSize: '16px',
+    marginTop: '10px',
+    marginLeft: 'auto',
+    width: '100px'
+  },
+  mock: {
+    fontSize: '20px',
+    color: 'grey'
+  }
+};
 
 export default class CompanyDetails extends Component {
 
@@ -12,6 +29,7 @@ export default class CompanyDetails extends Component {
     loading: false,
     loadingDB: false,
     error: false,
+    // errorText: '',
   };
 
   // componentDidMount() {
@@ -28,12 +46,14 @@ export default class CompanyDetails extends Component {
     this.setState({
       company,
       loading: false,
+      error: false,
     })
   };
 
-  onError = (err) => {
+  onError = () => {
     this.setState({
       error: true,
+      // errorText: err,
       loading: false,
     })
   };
@@ -55,28 +75,35 @@ export default class CompanyDetails extends Component {
   }
 
   onAddClick = async (obj) => {
-    let resp = await fetch('/add/employer', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(obj)
-    });
-    let data = await resp.json();
-    this.setState({
-      loadingDB: true,
-    });
-    console.log(data);
+    try {
+      let resp = await fetch('/add/employer', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(obj)
+      });
+      let data = await resp.json();
+      this.setState({
+        error: false,
+        loadingDB: true,
+      });
+    } catch (e) {
+      this.onError();
+    }
   };
 
   render() {
+    if (this.state.error) {
+      return <ErrorIndicator/>
+    }
 
     if (this.state.loading) {
       return <Spinner/>
     }
 
     if (!this.state.company) {
-      return <span>Selected a company from a list</span>
+      return <span style={styles.mock}>Selected a company from a list</span>
     }
 
     let {company: {
@@ -105,38 +132,39 @@ export default class CompanyDetails extends Component {
       null;
 
     const viewCity = city ?
-      <div className="content">
+      <div className="city-block">
         {city}
       </div> :
       null;
 
     const viewSite = site_url ?
-      <div className="content">
-        {`Сайт: ${site_url}`}
+      <div className="site-block">
+        <a href={site_url} target="_blank">{site_url}</a>
       </div> :
       null;
 
     return (
       <div className="company-details card">
-        {/*<div className="card-body">*/}
-        {/*  <h4>{name}</h4>*/}
-        {/*  <ul className="list-group list-group-flush">*/}
-        {/*    {viewCity}*/}
-        {/*    {viewSite}*/}
-        {/*  </ul>*/}
-        {/*</div>*/}
-
-        <div className="ui raised very padded text container segment">
+        {this.state.loadingDB && <Redirect to={`/company/${id}`}/>}
+        <div className="wrapper-card">
           {viewLogo}
-          <h2 className="ui header">{name}</h2>
+          <h2 className="">{name}</h2>
           {viewCity}
           {viewSite}
-          <button className='ui primary button' onClick={() => this.onAddClick(newCompany)}>Отправить</button>
-
+          <div
+            className="ui animated button"
+            tabIndex="0"
+            onClick={() => this.onAddClick(newCompany)}
+            style={styles.button}
+          >
+            <div className="visible content">Submit</div>
+            <div className="hidden content">
+              <i className="check icon"></i>
+            </div>
+          </div>
         </div>
-
-        {this.state.loadingDB && <Redirect to={`/company/${id}`}/>}
       </div>
+
     )
   };
 }

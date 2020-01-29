@@ -1,3 +1,14 @@
 input {
     margin-bottom: 5px;
+    margin-left: 10px;
+    width: 400px;
 }
+
+.wrapper-list {
+    height: 400px;
+    width: 400px;
+    /*overflow-x: scroll; !* прокрутка по горизонтали *!*/
+    overflow-y: scroll; /* прокрутка по вертикали */
+}
+
+
