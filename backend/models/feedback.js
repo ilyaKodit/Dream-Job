@@ -14,6 +14,7 @@ const FeedbackSchema = new Schema({
     type: ObjectId,
     ref: 'user',
   },
+  userName: String
 });
 
 module.exports = model('Feedback', FeedbackSchema);

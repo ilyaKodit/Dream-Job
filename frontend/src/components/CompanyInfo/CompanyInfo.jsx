@@ -4,27 +4,36 @@ import './CompanyInfo.css';
 import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {LoadingCompanies, LoadingFeedback} from "../../redux/creators";
+import Review from "../Review/Review";
 
 const styles = {
     image: {
         maxHeight: '150px',
         maxWidth: '150px',
         display: 'block',
-        margin: '0 auto'
+        margin: '0 auto 20px auto'
     },
     title: {
         color: '#CC4E46',
-        fontSize: '20px'
+        fontSize: '20px',
+        marginBottom: '30px'
+    },
+    a: {
+        textAlign: 'center',
+        fontSize: '16px'
     },
     text: {
         color: '#CC4E46',
+        fontSize: '22px',
+        textAlign: 'center',
+        lineHeight: '10px'
     },
     button: {
         background: '#CC4E46',
         color: 'white',
         fontSize: '16px',
         width: '150px',
-        margin: '0 auto',
+        margin: '0 auto 20px auto',
         display: 'block'
     },
 };
@@ -37,7 +46,7 @@ class CompanyInfo extends Component {
         this.state = {
             company: null,
             feeds: null,
-            checked: false
+            checked: false,
         }
     }
 
@@ -94,28 +103,14 @@ class CompanyInfo extends Component {
                     this.state.company ?
                         <div>
 
-                            <h3 style={styles.title} className="ui horizontal divider header">
-                                <i className="clipboard check icon"></i>
+                            <h4 style={styles.title} className="ui horizontal divider header">
                                 {this.state.company.name}
-                            </h3>
+                            </h4>
                             <img style={styles.image} src={this.state.company.image} alt=""/>
-                            <table className="ui definition table">
-                                <tbody>
 
-                                <tr>
-                                    <td style={styles.text} className="two wide column">Site</td>
-                                    <td><a href={this.state.company.site_url}>{this.state.company.site_url}</a></td>
-                                </tr>
-                                <tr>
-                                    <td style={styles.text}>Rating</td>
-                                    <td><p>{this.state.company.averageRating}/5</p></td>
-                                </tr>
-                                <tr>
-                                    <td style={styles.text}>Reviews</td>
-                                    <td><p>Отзывов: {this.state.company.count}</p></td>
-                                </tr>
-                                </tbody>
-                            </table>
+                            <p style={styles.a}><a href={this.state.company.site_url}>{this.state.company.site_url}</a></p>
+                            <p style={styles.text}>Рейтинг: {this.state.company.averageRating}/5</p>
+                            <p style={styles.text}>Отзывов: {this.state.company.count}</p>
 
                             <div style={styles.button} onClick={this.onClick} className="ui vertical animated button" tabIndex="0">
                                 <div className="visible content">Add review</div>
@@ -128,10 +123,7 @@ class CompanyInfo extends Component {
                                 this.state.feeds ?
                                     this.state.feeds.map((feed) => {
 
-                                        // Тут нужно вовращать компонент с отзывом
-                                        return (<div key={feed._id}>
-                                            <p>{feed.questions}</p>
-                                        </div>)
+                                        return <Review key={feed._id} data={feed} />
                                     })
                                     : <div>Spiner</div>
                             }

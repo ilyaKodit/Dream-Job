@@ -70,8 +70,10 @@ router.get('/feed', async (req, res) => {
 
 router.post('/feed', async (req, res) => {
 
-
   const { userId, companyId, interView, quest, task, contentText, rating } = req.body;
+
+  let user = await User.find({_id: userId});
+
   let newFeed = new Feedback({
     userId,
     companyId,
@@ -81,12 +83,15 @@ router.post('/feed', async (req, res) => {
     tasks: task,
     contentText,
     rating,
+    userName: user[0].login
   });
 
   newFeed.save().then((data) => {
+
     res.json(data);
 
   });
+
 });
 
 router.post('/add/employer', async (req, res) => {
