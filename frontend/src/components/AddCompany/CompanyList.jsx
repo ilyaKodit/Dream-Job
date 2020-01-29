@@ -34,7 +34,7 @@ export default class CompanyList extends Component {
       return (
         <li
           key={id}
-          className="list-group-item"
+          className="item"
           onClick={() => this.props.onCompanySelected(id)}
         >
           {name}
@@ -55,10 +55,18 @@ export default class CompanyList extends Component {
       <p>Not</p>;
     return (
       <div>
-        <input placeholder="Поиск" onChange={this.onTextChanged} value={this.state.searchString}/>
-        <ul className="item-list list-group">
+        {/*<input className='' placeholder="Поиск" onChange={this.onTextChanged} value={this.state.searchString}/>*/}
+        <div className="ui input icon large">
+          <input className='prompt' type="text" placeholder="Search for a company by name..." onChange={this.onTextChanged} value={this.state.searchString}/>
+          <i className="circular search link icon"></i>
+        </div>
+        <ul className="ui middle aligned selection list animated large">
           {items}
         </ul>
+
+
+
+
       </div>
     );
   }

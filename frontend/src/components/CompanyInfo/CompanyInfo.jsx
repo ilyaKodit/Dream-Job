@@ -1,9 +1,33 @@
 import React, {Component} from 'react';
 import './CompanyInfo.css';
 
-import {Link, Redirect} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {LoadingCompanies, LoadingFeedback} from "../../redux/creators";
+
+const styles = {
+    image: {
+        maxHeight: '150px',
+        maxWidth: '150px',
+        display: 'block',
+        margin: '0 auto'
+    },
+    title: {
+        color: '#CC4E46',
+        fontSize: '20px'
+    },
+    text: {
+        color: '#CC4E46',
+    },
+    button: {
+        background: '#CC4E46',
+        color: 'white',
+        fontSize: '16px',
+        width: '150px',
+        margin: '0 auto',
+        display: 'block'
+    },
+};
 
 class CompanyInfo extends Component {
 
@@ -69,16 +93,36 @@ class CompanyInfo extends Component {
                 {
                     this.state.company ?
                         <div>
-                            <div>
-                                <img className={'companyInfo_img'} src={this.state.company.image} alt=""/>
-                            </div>
 
-                            <p>{this.state.company.name}</p>
-                            {this.state.company.site_url && <p><Link to={this.state.company.site_url}>Сайт</Link></p>}
-                            <p>Рейтинг: {this.state.company.averageRating}/5</p>
-                            <p>Отзывов: {this.state.company.count}</p>
-                            <br/>
-                            <input onClick={this.onClick} type="submit" value={'Написать отзыв'}/>
+                            <h3 style={styles.title} className="ui horizontal divider header">
+                                <i className="clipboard check icon"></i>
+                                {this.state.company.name}
+                            </h3>
+                            <img style={styles.image} src={this.state.company.image} alt=""/>
+                            <table className="ui definition table">
+                                <tbody>
+
+                                <tr>
+                                    <td style={styles.text} className="two wide column">Site</td>
+                                    <td><a href={this.state.company.site_url}>{this.state.company.site_url}</a></td>
+                                </tr>
+                                <tr>
+                                    <td style={styles.text}>Rating</td>
+                                    <td><p>{this.state.company.averageRating}/5</p></td>
+                                </tr>
+                                <tr>
+                                    <td style={styles.text}>Reviews</td>
+                                    <td><p>Отзывов: {this.state.company.count}</p></td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <div style={styles.button} onClick={this.onClick} className="ui vertical animated button" tabIndex="0">
+                                <div className="visible content">Add review</div>
+                                <div className="hidden content">
+                                    <i className="plus icon"></i>
+                                </div>
+                            </div>
 
                             {
                                 this.state.feeds ?
