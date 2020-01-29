@@ -4,8 +4,8 @@ import { SocialIcon } from 'react-social-icons';
 
 import photo1 from './DSC08951 1 copy1.jpg';
 import photo2 from './DSC07922 copy2.jpg';
-import photo3 from './p2.png';
-import photo4 from './p3.png';
+import photo3 from './Image from iOS (1).jpg';
+import photo4 from './DSC09064 1 copy1.jpg';
 
 export default function Team() {
   return (
@@ -23,41 +23,37 @@ export default function Team() {
                   network="github"
                   bgColor="#CC4E46"
                   style={{ height: 20, width: 20 }}
-                />{' '}
+                />
               </a>
             </div>
           </div>
 
           <div className="pe">
             <img src={photo3} alt="" />
-            <div className="p-name">Full Name</div>
-            <div className="p-des">Developer</div>
+            <div className="p-name">Mike</div>
+            <div className="p-des">Человек-идея</div>
             <div className="p-sm">
-              <a href="#">
-                <i className="fab fa-facebook-f"></i>
-              </a>
-              <a href="#">
-                <i className="fab fa-twitter"></i>
-              </a>
-              <a href="#">
-                <i className="fab fa-instagram"></i>
+              <a href="https://github.com/mikeAvdeev12">
+                <SocialIcon
+                  network="github"
+                  bgColor="#CC4E46"
+                  style={{ height: 20, width: 20 }}
+                />
               </a>
             </div>
           </div>
 
           <div className="pe">
             <img src={photo4} alt="" />
-            <div className="p-name">Full Name</div>
+            <div className="p-name">Михаил</div>
             <div className="p-des">Developer</div>
             <div className="p-sm">
-              <a href="#">
-                <i className="fab fa-facebook-f"></i>
-              </a>
-              <a href="#">
-                <i className="fab fa-twitter"></i>
-              </a>
-              <a href="#">
-                <i className="fab fa-instagram"></i>
+              <a href="https://github.com/magroz">
+                <SocialIcon
+                  network="github"
+                  bgColor="#CC4E46"
+                  style={{ height: 20, width: 20 }}
+                />
               </a>
             </div>
           </div>
