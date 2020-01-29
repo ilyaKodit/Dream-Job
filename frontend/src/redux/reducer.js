@@ -1,7 +1,8 @@
-import {COMPANIES} from "./actions";
+import {COMPANIES, FEEDBACK} from "./actions";
 
 const initialState = {
-    companies: null
+    companies: [],
+    feedback: []
 };
 
 export default function (oldState = initialState, action) {
@@ -9,6 +10,13 @@ export default function (oldState = initialState, action) {
         case COMPANIES:
             return {
                 companies: action.data,
+                feedback: oldState.feedback
+            };
+
+        case FEEDBACK:
+            return {
+                companies: oldState.companies,
+                feedback: action.data
             };
 
         default:

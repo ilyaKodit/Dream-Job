@@ -1,4 +1,5 @@
 const COMPANIES ='COMPANIES';
+const FEEDBACK = 'FEEDBACK';
 
 
-export {COMPANIES}
+export {COMPANIES, FEEDBACK}

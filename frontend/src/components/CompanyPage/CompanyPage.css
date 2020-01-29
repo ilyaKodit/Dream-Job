@@ -1,6 +1,59 @@
 .company{
-    height: 200px;
-    width: 200px;
-    background-color: lightgray;
-    margin: 20px;
+    height: 280px;
+    width: 280px;
+    margin: 12px;
+    /*border: 2px solid #CC4E46;*/
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    box-shadow: 0 15px 25px #c2c2c2;
+    color: #CC4E46;
+}
+
+.company:hover{
+    background-color: white;
+}
+
+.company > p {
+    font-size: 16px;
+    margin: 0 10px;
+    text-align: center;
+}
+
+.company > p:nth-child(2){
+    color: #b0352c;
+    font-size: 22px;
+    margin-bottom: 10px;
+    /*font-weight: 600;*/
+}
+
+.image_cont {
+    height: 100px;
+    width: 100px;
+    margin: 30px auto;
+}
+
+.image {
+    /*border-radius: 50%;*/
+    display: block;
+    margin: 0 auto;
+    max-height: 100px;
+    max-width: 100px;
+}
+
+.image{
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray;
+}
+
+.imageColor{
+    -webkit-filter: none;
+    -moz-filter: none;
+    -ms-filter: none;
+    -o-filter: none;
+    filter: none;
+    filter: none;
 }

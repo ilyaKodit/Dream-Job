@@ -1,6 +1,35 @@
 .nav {
-  margin: 30px;
+  padding: 30px 30px 50px 30px;
+  display: flex;
+  justify-content: space-between;
 }
+
 .nav_item {
   margin: 10px;
+  text-decoration: none;
+  font-size: 30px;
+  color: #CC4E46;
 }
+
+.nav_item:hover {
+  color: #ff6255;
+}
+
+.logoName {
+  /*position: absolute;*/
+  /*top: 20px;*/
+  /*left: 42%;*/
+  color: #CC4E46;
+  font-size: 45px;
+  padding: 15px;
+  border: 3px solid #CC4E46;
+  border-radius: 5px;
+}
+
+.userName{
+  margin: 10px 30px;
+  font-size: 30px;
+  /*color: #682827;*/
+  color: #CC4E46;
+}
+
