@@ -4,6 +4,12 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import './Navbar.css';
 
+setInterval(() => {
+    document.querySelector('.logoName').style.left = `${ (document.querySelector('body').clientWidth / 2) - 95}px`
+}, 40);
+
+
+
 class Navbar extends Component {
     constructor(props) {
         super(props);
