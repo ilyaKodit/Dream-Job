@@ -12,6 +12,7 @@ const router = express.Router();
 const User = require('../models/user');
 const Feedback = require('../models/feedback');
 const Company = require('../models/company');
+const Key = require('../models/key');
 
 
 let averageRating = async (companyId) => {
@@ -127,6 +128,13 @@ router.post('/add/employer', async (req, res) => {
       .catch(res.json({status: 'Ошибка при сохранении в базу данных'}))
   }
   await res.json({status: 'Уже добавлено'});
+});
+
+router.post('/key', async (req, res) => {
+
+  let result = await Key.findOne({key: req.body.key});
+
+  res.json({status: result});
 });
 
 module.exports = router;
