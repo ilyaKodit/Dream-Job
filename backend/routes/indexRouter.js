@@ -2,6 +2,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const session = require('express-session');
+const faker = require('faker');
 
 const bcrypt = require('bcrypt');
 // const { sessionChecker } = require('../middleware/auth');
@@ -136,7 +137,26 @@ router.post('/key', async (req, res) => {
   let result = await Key.findOne({key: req.body.key});
 
   res.json({status: result});
-  
+
+});
+
+router.post('/createKey', async (req, res) => {
+
+  let allCreateKeys = [];
+
+  for (let i = 0; i < req.body.num ; i++) {
+
+    let key = await faker.random.number(100000000000);
+    let newKey = new Key({
+      key: key
+    });
+    newKey.save();
+
+    allCreateKeys.push(key);
+  }
+
+  res.json({keys: allCreateKeys});
+
 });
 
 router.post('/search/companies', async (req, res) => {

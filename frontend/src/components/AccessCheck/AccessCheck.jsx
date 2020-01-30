@@ -1,15 +1,17 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import CompanyPage from "../CompanyPage/CompanyPage";
 import {Redirect} from "react-router-dom";
-import Registration from "../Registration/Registration";
 
-const styled = {
+const styles = {
     button: {
         color: 'white',
         background: '#CC4E46',
         fontSize: '16px',
 
+    },
+    error: {
+        width: '172px',
+        margin: '0 auto'
     }
 };
 
@@ -19,13 +21,14 @@ class AccessCheck extends Component {
         super(props);
 
         this.state = {
-            key: ''
+            key: '',
+            error: false
         }
     }
 
     buttonPush = async () => {
 
-        let resp = await fetch('/key',{
+        let resp = await fetch('/key', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -36,16 +39,22 @@ class AccessCheck extends Component {
         });
         let data = await resp.json();
 
-        if (data.status){
+        if (data.status) {
             sessionStorage.keyUser = this.state.key;
             this.props.history.push(`/registration`);
+        } else {
+            this.setState({
+                key: this.state.key,
+                error: true
+            })
         }
 
     };
 
     onChange = (event) => {
         this.setState({
-            key: event.target.value
+            key: event.target.value,
+            error: this.state.error
         });
     };
 
@@ -57,19 +66,25 @@ class AccessCheck extends Component {
                 <p className='teg'></p>
                 <div className="ui form container1">
                     <div className="field ui right icon input">
-                        <input placeholder='Введите ключ' onChange={this.onChange} value={this.state.key} >
+                        <input placeholder='Введите ключ' onChange={this.onChange} value={this.state.key}>
                         </input>
                         <i className="icon key"></i>
                     </div>
                 </div>
                 <div className="button_div">
-                    <div style={styled.button} onClick={this.buttonPush} className="ui animated button" tabIndex="0">
+                    <div style={styles.button} onClick={this.buttonPush} className="ui animated button" tabIndex="0">
                         <div className="visible content">Ввести ключ</div>
                         <div className="hidden content">
                             <i className="right arrow icon"></i>
                         </div>
                     </div>
                 </div>
+                <br/>
+                {
+                    this.state.error && <div style={styles.error} className="ui negative message">
+                        <p>Введен неверный ключ</p>
+                    </div>
+                }
 
                 {sessionStorage.keyUser && <Redirect to={'/registration'}/>}
 
