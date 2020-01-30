@@ -15,17 +15,19 @@ const styles = {
         margin: '0 auto 20px auto'
     },
     title: {
-        color: '#CC4E46',
-        fontSize: '20px',
+        color: '#b0352c',
+        fontSize: '22px',
         marginBottom: '30px'
     },
     a: {
         textAlign: 'center',
-        fontSize: '16px'
+        fontSize: '16px',
+        color: 'grey',
+        marginBottom: '30px'
     },
     text: {
         color: '#CC4E46',
-        fontSize: '22px',
+        fontSize: '26px',
         textAlign: 'center',
         lineHeight: '10px'
     },
@@ -67,7 +69,7 @@ class CompanyInfo extends Component {
                 this.setState({
                     company: company,
                     feeds: this.state.feeds,
-                    input: this.state.input
+                    checked: this.state.checked
                 })
             }
         });
@@ -82,7 +84,7 @@ class CompanyInfo extends Component {
         this.setState({
             company: this.state.company,
             feeds: userFeedback,
-            input: this.state.input
+            checked: this.state.checked
         });
 
     };
@@ -92,7 +94,7 @@ class CompanyInfo extends Component {
         this.setState({
             company: this.state.company,
             feeds: this.state.feeds,
-            input: !this.state.input
+            checked: !this.state.checked
         })
     };
 
@@ -109,7 +111,7 @@ class CompanyInfo extends Component {
                             </h4>
                             <img style={styles.image} src={this.state.company.image} alt=""/>
 
-                            <p style={styles.a}><a href={this.state.company.site_url}>{this.state.company.site_url}</a></p>
+                            <p style={styles.a}><a style={styles.a} href={this.state.company.site_url}>{this.state.company.site_url}</a></p>
                             <p style={styles.text}>Рейтинг: {this.state.company.averageRating}/5</p>
                             <p style={styles.text}>Отзывов: {this.state.company.count}</p>
 
@@ -133,7 +135,7 @@ class CompanyInfo extends Component {
                         : <Spinner/>
                 }
 
-                {this.state.input && <Redirect to={`/feedback/${this.state.company.id}`}/>}
+                {this.state.checked && <Redirect to={`/feedback/${this.state.company.id}`}/>}
                 {!sessionStorage.user && <Redirect to="/login"/>}
             </div>
         );

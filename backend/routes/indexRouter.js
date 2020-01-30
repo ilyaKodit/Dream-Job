@@ -13,6 +13,28 @@ const User = require('../models/user');
 const Feedback = require('../models/feedback');
 const Company = require('../models/company');
 
+
+let averageRating = async (companyId) => {
+
+  let allFeedbackCompany = await Feedback.find({companyId: companyId});
+  // console.log(allFeedbackCompany);
+  let allRating = 0;
+  let totalReviews = 0;
+  allFeedbackCompany.map((feed) => {
+    allRating += feed.rating;
+    totalReviews += 1;
+  });
+
+  let result = await Company.findOneAndUpdate({id: companyId}, {
+    averageRating: +(allRating / totalReviews).toFixed(1),
+    count: totalReviews
+  });
+  result.save();
+   // return +(allRating / totalReviews).toFixed(1);
+
+};
+
+
 router.get('/', async (req, res) => {
   res.json({ test: 'hello bro!' });
 });
@@ -86,8 +108,9 @@ router.post('/feed', async (req, res) => {
     userName: user[0].login
   });
 
-  newFeed.save().then((data) => {
+  newFeed.save().then( async (data) => {
 
+    await averageRating(companyId);
     res.json(data);
 
   });

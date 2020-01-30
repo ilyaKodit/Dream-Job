@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import './MainPage.css'
 import CompanyPage from "../CompanyPage/CompanyPage";
-import { Link, Redirect } from 'react-router-dom';
+import { Link, Redirect, Route } from 'react-router-dom';
 import {connect} from 'react-redux';
 import {LoadingCompanies} from "../../redux/creators";
 
@@ -49,7 +49,9 @@ class MainPage extends Component {
                     {
                         this.props.companies ?
                             this.props.companies.map((company) => {
-                                return <CompanyPage key={company.id} company={company}/>
+                                return <Route key={company.id}
+                                    render={(props) => <CompanyPage {...props} company={company}/>}
+                                />
                             })
                             : <div>Не добавлено ни одной компании</div>
                     }

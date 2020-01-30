@@ -43,6 +43,10 @@ class Review extends Component {
         let month = date.getMonth() + 1;
         let year = date.getFullYear();
 
+        if (day < 10) {
+            day = `0${day}`;
+        }
+
         if (month < 10) {
             month = `0${month}`;
         }
@@ -74,21 +78,21 @@ class Review extends Component {
                     <p style={styles.heading} data-id={this.props.data._id}>Отзыв</p>
                     <div className="ui segments">
                         <div data-id={this.props.data._id} className="ui segment">
-                            <p style={styles.text} data-id={this.props.data._id}>{this.props.data.contentText}</p>
+                            <pre style={styles.text} data-id={this.props.data._id}>{this.props.data.contentText}</pre>
                         </div>
                     </div>
 
                     <p style={styles.heading} data-id={this.props.data._id}>Вопросы на собеседовании</p>
                     <div className="ui segments">
                         <div data-id={this.props.data._id} className="ui segment">
-                            <p style={styles.text} data-id={this.props.data._id}>{this.props.data.questions}</p>
+                            <pre style={styles.text} data-id={this.props.data._id}>{this.props.data.questions}</pre>
                         </div>
                     </div>
 
                     <p style={styles.heading} data-id={this.props.data._id}>Задачи на собеседовании</p>
                     <div className="ui segments">
                         <div data-id={this.props.data._id} className="ui segment">
-                            <p style={styles.text} data-id={this.props.data._id}>{this.props.data.tasks}</p>
+                            <pre style={styles.text} data-id={this.props.data._id}>{this.props.data.tasks}</pre>
                         </div>
                     </div>
 
