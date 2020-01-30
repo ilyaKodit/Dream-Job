@@ -61,7 +61,7 @@ export default function Team() {
           <div className="pe">
             <img src={photo2} alt="" />
             <div className="p-name">Batyrkhan Zhaparov</div>
-            <div className="p-des">Бешеный разработчик</div>
+            <div className="p-des">И все таки на удаленке</div>
             <div className="p-sm">
               <a href="https://www.linkedin.com/in/batyrqh/">
                 <SocialIcon

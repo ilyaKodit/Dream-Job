@@ -11,6 +11,16 @@
   color: #CC4E46;
 }
 
+.registr_item {
+  background-color: #CC4E46;
+  margin: 10px;
+  text-decoration: none;
+  font-size: 30px;
+  color: rgb(223, 223, 223);
+  padding: 10px;
+  border-radius: 5px;
+}
+
 .nav_item:hover {
   color: #ff6255;
 }
@@ -24,12 +34,13 @@
   padding: 15px;
   border: 3px solid #CC4E46;
   border-radius: 5px;
+  justify-content: center;
+  /* margin-left: 15%; */
 }
 
-.userName{
+.userName {
   margin: 10px 30px;
   font-size: 30px;
   /*color: #682827;*/
   color: #CC4E46;
 }
-
