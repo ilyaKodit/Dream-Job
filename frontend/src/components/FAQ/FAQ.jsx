@@ -1,26 +1,24 @@
 import React, { useState } from 'react';
 
 import Question from './Question';
-// import Header from './Header.jsx';
 
 import './FAQ.css'
 
 export default function FAQ() {
   const [faqs, setfaqs] = useState([
     {
-      question: 'How many programmers does it take to screw in a lightbulb?',
-      answer: "None. We don't address hardware issues.",
-      open: true,
-    },
-    {
-      question: 'Who is the most awesome person?',
-      answer: 'You. The Viewer.',
+      question: 'Как можно получить доступ к приложению?',
+      answer: "Ответ: Для доступа к приложению необходимо быть студентом bootcampa 'Elbrus'",
       open: false,
     },
     {
-      question:
-        'How many questions does it take to make a successful FAQ Page?',
-      answer: 'This many.',
+      question: 'Чем отличается DreamJob от других подобных приложений?',
+      answer: "Ответ: DreamJob - это закрытое приложение созданное для комьюнити bootcampa 'Elbrus'",
+      open: false,
+    },
+    {
+      question: 'Как мне оставить свой отзыв в приложение?',
+      answer: 'Ответ: Это очень просто. Для этого нужно заполнить все поля формы нового отзыва ',
       open: false,
     },
   ]);
@@ -41,7 +39,6 @@ export default function FAQ() {
 
   return (
     <div className="App">
-      {/*<Header />*/}
       <div className="faqs">
         {faqs.map((faq, i) => (
           <Question key={i} faq={faq} index={i} toggleFAQ={toggleFAQ} />
