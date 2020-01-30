@@ -6,8 +6,8 @@ const styles = {
     container: {
         position: 'relative',
         margin: 'auto',
-        height: '100px',
-        width: '100px'
+        height: '50px',
+        width: '50px'
     },
     spinner: {
         position: 'absolute',
