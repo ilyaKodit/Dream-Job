@@ -11,6 +11,7 @@ import Feedback from '../Feedback/Feedback';
 import MainPage from '../MainPage/MainPage';
 import CompanyInfo from '../CompanyInfo/CompanyInfo';
 import AccessCheck from "../AccessCheck/AccessCheck";
+import Admin from "../Admin/Admin";
 import Error from '../Error/Error';
 
 function Main() {
@@ -22,6 +23,7 @@ function Main() {
         <Route path="/login" component={Login}/>
         <Route path="/registration" component={Registration}/>
         <Route path="/accessCheck" component={AccessCheck}/>
+        <Route path="/admin" component={Admin}/>
         <Route path="/faq" component={FAQ}/>
         <Route path="/team" component={Team}/>
         <Route path="/main" component={MainPage}/>
