@@ -9,17 +9,17 @@
 .sloganLine1 .sloganLine2 {}
 
 .cloudPic {
-  width: 330px;
+  width: 830px;
 }
 
-@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+/*@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');*/
 
 /* body {
   padding: 40px;
   background-color: #121212;
 } */
 
-p {
+p.slogan {
   border-right: solid 3px rgba(0, 255, 0, .75);
   white-space: nowrap;
   overflow: hidden;
@@ -60,7 +60,7 @@ p.sloganLine2 {
 
 @keyframes animated-cursor {
   from {
-    border-right-color: rgba(0, 255, 0, .75);
+    border-right-color: grey;
   }
 
   to {

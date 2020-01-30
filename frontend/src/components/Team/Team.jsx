@@ -11,7 +11,7 @@ export default function Team() {
   return (
     <div className="team-section">
       <div className="inner-width">
-        <h1>Meet Our Team</h1>
+        {/*<h1>Meet Our Team</h1>*/}
         <div className="pers">
           <div className="pe">
             <img src={photo1} alt="" />
@@ -21,7 +21,7 @@ export default function Team() {
               <a href="https://github.com/ilyaKodit">
                 <SocialIcon
                   network="github"
-                  bgColor="#CC4E46"
+                  bgColor="#666666"
                   style={{ height: 20, width: 20 }}
                 />
               </a>
@@ -36,7 +36,7 @@ export default function Team() {
               <a href="https://github.com/mikeAvdeev12">
                 <SocialIcon
                   network="github"
-                  bgColor="#CC4E46"
+                  bgColor="#666666"
                   style={{ height: 20, width: 20 }}
                 />
               </a>
@@ -51,7 +51,7 @@ export default function Team() {
               <a href="https://github.com/magroz">
                 <SocialIcon
                   network="github"
-                  bgColor="#CC4E46"
+                  bgColor="#666666"
                   style={{ height: 20, width: 20 }}
                 />
               </a>
@@ -66,14 +66,14 @@ export default function Team() {
               <a href="https://www.linkedin.com/in/batyrqh/">
                 <SocialIcon
                   network="linkedin"
-                  bgColor="#CC4E46"
+                  bgColor="#0270b2"
                   style={{ height: 20, width: 20 }}
                 />
               </a>
               <a href="https://github.com/batyr-qhan">
                 <SocialIcon
                   network="github"
-                  bgColor="#CC4E46"
+                  bgColor="#666666"
                   style={{ height: 20, width: 20 }}
                 />
               </a>
