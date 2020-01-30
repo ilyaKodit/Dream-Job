@@ -5,6 +5,7 @@ import {Redirect} from "react-router-dom";
 import './Registration.css'
 
 
+
 const styled = {
     button: {
         color: 'white',
@@ -68,46 +69,42 @@ class Registration extends Component {
         }
     };
 
-    render() {
-        return (
-            <div>
-                <p className='teg'></p>
-                <div className="ui form container1">
-                    <div className="field ui right icon input">
-                        <input required onChange={this.onChangeGlobal('login')} type="text"
-                               placeholder={'Введите логин'} value={this.state.login}/>
-                        <i className="icon user outline"></i>
-                    </div>
-                    <div className="field ui right icon input">
-                        <input onChange={this.onChangeGlobal('email')} type="text" placeholder={'Введите почту'}
-                               value={this.state.email}/>
-                        <i className="icon envelope outline"></i>
-                    </div>
-                    <div className="field ui right icon input">
-                        <input required onChange={this.onChangeGlobal('pass')} type={'password'}
-                               placeholder={'Введите пароль'} value={this.state.pass}/>
-                        <i className="icon lock"></i>
-                    </div>
-                    <div className="field ui right icon input">
-                        <input required onChange={this.onChangeGlobal('pass2')} type={'password'}
-                               placeholder={'Введите пароль еще раз'} value={this.state.pass2}/>
-                        <i className="icon lock"></i>
-                    </div>
-                </div>
-                <div className="button_div">
-                    <div style={styled.button} onClick={this.registration} className="ui animated button" tabindex="0">
-                        <div className="visible content">Войти</div>
-                        <div className="hidden content">
-                            <i className="right arrow icon"></i>
-                        </div>
-                    </div>
-                </div>
-                {sessionStorage.user && <Redirect to="/main"/>}
+  render() {
+    return (
+      <div>
+        <p className='teg'></p>
+        <div className="ui form container1">
+        <div className="field ui right icon input">
+          <input required onChange={this.onChangeGlobal('login')} type="text" placeholder={'Введите логин'} value={this.state.login} />
+          <i className="icon user outline"></i>
+          </div>
+          <div className="field ui right icon input">
+          <input onChange={this.onChangeGlobal('email')} type="text" placeholder={'Введите почту'} value={this.state.email} />
+          <i className="icon envelope outline"></i>
+          </div>
+          <div className="field ui right icon input">
+          <input required onChange={this.onChangeGlobal('pass')} type="text" placeholder={'Введите пароль'} value={this.state.pass} />
+          <i className="icon lock"></i>
+          </div>
+          <div className="field ui right icon input">
+          <input required onChange={this.onChangeGlobal('pass2')} type="text" placeholder={'Введите пароль еще раз'} value={this.state.pass2} />
+          <i className="icon lock"></i>
+          </div>
+          </div>
+          <div className="button_div">
+          <div style={styled.button} onClick={this.registration} className="ui animated button" tabIndex="0">
+            <div className="visible content">Войти</div>
+            <div className="hidden content">
+            <i className="right arrow icon"></i>
+          </div>
+          </div>
+          </div>
+        {sessionStorage.user && <Redirect to="/main" />}
 
-            </div>
+      </div>
 
-        );
-    }
+    );
+  }
 }
 
 export default connect()(Registration)

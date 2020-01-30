@@ -14,69 +14,79 @@ export default function Team() {
         {/*<h1>Meet Our Team</h1>*/}
         <div className="pers">
           <div className="pe">
-            <img src={photo1} alt="" />
+            <img src={photo1} alt=""/>
             <div className="p-name">Ilya Makhovskiy</div>
             <div className="p-des">Просто Team Lead</div>
             <div className="p-sm">
-              <a href="https://github.com/ilyaKodit">
-                <SocialIcon
-                  network="github"
-                  bgColor="#666666"
-                  style={{ height: 20, width: 20 }}
-                />
-              </a>
+              <SocialIcon
+                url="https://github.com/ilyaKodit"
+                network="github"
+                bgColor="#666666"
+                style={{
+                  height: 20,
+                  width: 20,
+                }}
+              />
             </div>
           </div>
 
           <div className="pe">
-            <img src={photo3} alt="" />
+            <img src={photo3} alt=""/>
             <div className="p-name">Mike</div>
             <div className="p-des">Человек-идея</div>
             <div className="p-sm">
-              <a href="https://github.com/mikeAvdeev12">
-                <SocialIcon
-                  network="github"
-                  bgColor="#666666"
-                  style={{ height: 20, width: 20 }}
-                />
-              </a>
+              <SocialIcon
+                url="https://github.com/mikeAvdeev12"
+                network="github"
+                bgColor="#666666"
+                style={{
+                  height: 20,
+                  width: 20,
+                }}
+              />
             </div>
           </div>
 
           <div className="pe">
-            <img src={photo4} alt="" />
+            <img src={photo4} alt=""/>
             <div className="p-name">Михаил</div>
             <div className="p-des">Developer</div>
             <div className="p-sm">
-              <a href="https://github.com/magroz">
-                <SocialIcon
-                  network="github"
-                  bgColor="#666666"
-                  style={{ height: 20, width: 20 }}
-                />
-              </a>
+              <SocialIcon
+                url="https://github.com/magroz"
+                network="github"
+                bgColor="#666666"
+                style={{
+                  height: 20,
+                  width: 20,
+                }}
+              />
             </div>
           </div>
 
           <div className="pe">
-            <img src={photo2} alt="" />
+            <img src={photo2} alt=""/>
             <div className="p-name">Batyrkhan Zhaparov</div>
             <div className="p-des">И все таки на удаленке</div>
             <div className="p-sm">
-              <a href="https://www.linkedin.com/in/batyrqh/">
-                <SocialIcon
-                  network="linkedin"
-                  bgColor="#0270b2"
-                  style={{ height: 20, width: 20 }}
-                />
-              </a>
-              <a href="https://github.com/batyr-qhan">
-                <SocialIcon
-                  network="github"
-                  bgColor="#666666"
-                  style={{ height: 20, width: 20 }}
-                />
-              </a>
+              <SocialIcon
+                url="https://www.linkedin.com/in/batyrqh/"
+                network="linkedin"
+                bgColor="#0270b2"
+                style={{
+                  height: 20,
+                  width: 20,
+                }}
+              />
+              <SocialIcon
+                url="https://github.com/batyr-qhan"
+                network="github"
+                bgColor="#666666"
+                style={{
+                  height: 20,
+                  width: 20,
+                }}
+              />
             </div>
           </div>
         </div>

@@ -27,6 +27,7 @@ const styles = {
     title_text: {
         fontSize: '18px',
         color: 'black',
+        textAlign: 'center',
     }
 };
 
