@@ -1,5 +1,5 @@
 .container1{
-  background: #CC4E46 !important;
+  background: rgb(173, 173, 173) !important;
   display: flex;
   justify-content: center;
   flex-direction: column;

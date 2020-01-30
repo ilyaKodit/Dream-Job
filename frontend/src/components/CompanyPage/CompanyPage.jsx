@@ -15,11 +15,7 @@ class CompanyPage extends Component {
     }
 
     onClick = async (event) => {
-        event.stopPropagation();
-
-        this.setState({
-            id: event.target.dataset.id
-        })
+        this.props.history.push(`company/${this.props.company.id}`);
     };
 
     onMouseOver = (event) => {
@@ -49,7 +45,6 @@ class CompanyPage extends Component {
                 <p data-id={this.props.company.id}>Рейтинг: {this.props.company.averageRating}/5</p>
                 <p data-id={this.props.company.id}>Комментарии: {this.props.company.count}</p>
 
-                {this.state.id && <Redirect to={`company/${this.state.id}`}/>}
                 {!sessionStorage.user && <Redirect to="/login"/>}
             </div>
         );

@@ -23,24 +23,26 @@
     color: #b0352c;
     font-size: 22px;
     margin-bottom: 10px;
-    /*font-weight: 600;*/
 }
 
 .image_cont {
     height: 100px;
     width: 100px;
     margin: 30px auto;
+    position: relative;
 }
 
 .image {
-    /*border-radius: 50%;*/
-    display: block;
-    margin: 0 auto;
     max-height: 100px;
     max-width: 100px;
-}
 
-.image{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+
     -webkit-filter: grayscale(100%);
     -moz-filter: grayscale(100%);
     -ms-filter: grayscale(100%);

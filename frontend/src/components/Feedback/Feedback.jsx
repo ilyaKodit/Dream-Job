@@ -1,25 +1,27 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 
-import styled from 'styled-components';
+import './Feedback.css';
 
-const Div = styled.div`
-  margin: 20px;
-  color: green;
-`
-const Input = styled.input`
-  color: red;
-`
-const Button = styled.button`
-  color: red;
-  background-color: yellow;
-  margin:20px;
-`
-const Div1 = styled.div`
-  font-size: 25px;
-  margin: 20px;
-  color: red;
-`
+const styled1 = {
+  button: {
+    color: 'white',
+    background: '#CC4E46',
+    fontSize: '16px',
+  },
+  button2: {
+    color: 'white',
+    background: 'rgb(185, 185, 185)',
+    fontSize: '16px',
+  },
+  input1: {
+    fontSize: '16px',
+  },
+  input2: {
+    fontSize: '16px',
+    width: '180px',
+  }
+};
 
 class Feedback extends Component {
   constructor(props) {
@@ -45,33 +47,33 @@ class Feedback extends Component {
   };
 
   toPressButton = async () => {
-
-    let resp = await fetch('/feed', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        userId: sessionStorage.user,
-
-        companyId: this.props.match.params.id,
-        interView: this.state.interView,
-        quest: this.state.quest,
-        task: this.state.task,
-        contentText: this.state.contentText,
-        rating: this.state.rating,
-      })
-    });
-    let data = await resp.json();
-
-    console.log(data);
     if (
-      this.state.interView.length  &&
-      this.state.quest.length  &&
-      this.state.task.length  &&
-      this.state.contentText.length  &&
-      this.state.rating.length 
+      this.state.interView.length &&
+      this.state.quest.length &&
+      this.state.task.length &&
+      this.state.contentText.length &&
+      this.state.rating.length
     ) {
+      let resp = await fetch('/feed', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          userId: sessionStorage.user,
+
+          companyId: this.props.match.params.id,
+          interView: this.state.interView,
+          quest: this.state.quest,
+          task: this.state.task,
+          contentText: this.state.contentText,
+          rating: this.state.rating,
+        })
+      });
+      let data = await resp.json();
+
+      console.log(data);
+
       this.setState({
         interView: '',
         quest: '',
@@ -80,6 +82,7 @@ class Feedback extends Component {
         rating: '',
         result: true,
       });
+     
     } else {
       this.setState({
         correct: !this.state.correct
@@ -91,35 +94,75 @@ class Feedback extends Component {
     this.setState({
       buttonBack: true,
     })
-  } 
+  }
 
   render() {
     return (
-      <>
-        <div>Добавить отзыв:</div>
-        <Div>
-          Дата собеседования <Input onChange={this.onChangeGlobal('interView')} type="date" value={this.state.interView}>
-          </Input>
-        </Div>
-        <Div>
-          Вопросы на собеседование <textarea onChange={this.onChangeGlobal('quest')} placeholder='questions' value={this.state.quest} />
-        </Div>
-        <Div>
-          Задания на собеседование <textarea onChange={this.onChangeGlobal('task')} placeholder='tasks' value={this.state.task} />
-        </Div>
-        <Div>
-          Общее впечатление о компании <textarea onChange={this.onChangeGlobal('contentText')} placeholder='tasks' value={this.state.contentText} />
-        </Div>
-        <Div>
-          Оценка компании <input onChange={this.onChangeGlobal('rating')} type='number' placeholder='tasks' value={this.state.rating} />
-        </Div>
-        <Button onClick={this.toPressButton}>Оставить отзыв</Button>
-        <Button onClick={this.toPressButtonBack}>Назад</Button>
-        {this.state.correct && <Div1>Заполните все поля</Div1>}
+      <div>
+        <div className='div_feedback'>
+          <div className='div_feedback_title'>Новый отзыв</div>
+          <div className="ui labeled input">
+            <div className="ui label div_feedback_color">Дата собеседования
+        </div>
+            <input style={styled1.input2} className="input_feedback" onChange={this.onChangeGlobal('interView')} type="date" value={this.state.interView}>
+            </input>
+          </div>
+          <div className="ui labeled input">
+            <div className="ui label div_feedback_color">Вопросы на собеседование
+        </div>
+            <textarea id='123' className="input_feedback input_feedback_big" onChange={this.onChangeGlobal('quest')} value={this.state.quest} />
+          </div>
+          <div className="ui labeled input">
+            <div className="ui label div_feedback_color">Задания на собеседование
+        </div>
+            <textarea className="input_feedback input_feedback_big" onChange={this.onChangeGlobal('task')} value={this.state.task} />
+          </div>
+          <div className="ui labeled input">
+            <div className="ui label div_feedback_color">Впечатление о компании
+        </div>
+            <textarea className="input_feedback input_feedback_big" onChange={this.onChangeGlobal('contentText')} value={this.state.contentText} />
+          </div>
+          <div className="ui labeled input">
+            <div className="ui label div_feedback_color">Оценка компании
+        </div>
+            <select style={styled1.input1} className="input_feedback" onChange={this.onChangeGlobal('rating')} value={this.state.rating} >
+              <option></option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+        </div>
+        <div className='div_feedback_allbutton'>
+          <div className="div_feedback_button">
+            <div style={styled1.button} onClick={this.toPressButton} className="ui animated button" tabindex="0">
+              <div className="visible content">Добавить отзыв</div>
+              <div className="hidden content">
+                <i className="right arrow icon"></i>
+              </div>
+            </div>
+          </div> 
+          <div className="div_feedback_button">
+            <div style={styled1.button2} onClick={this.toPressButtonBack}className="ui animated button" tabindex="0">
+              <div className="visible content">Назад</div>
+              <div className="hidden content">
+                <i className="right arrow icon"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        {this.state.correct && <div class="ui negative message div_feedback_error">
+          <div class="header">
+            Перед отправкой заполните все поля формы
+        </div>
+        </div>}
         {this.state.buttonBack && <Redirect to={`/company/${this.props.match.params.id}`} />}
         {this.state.result && <Redirect to={`/company/${this.props.match.params.id}`} />}
         {!sessionStorage.user && <Redirect to="/main" />}
-      </>
+      </div>
+
     )
   }
 };

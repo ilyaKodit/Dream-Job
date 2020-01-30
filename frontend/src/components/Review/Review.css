@@ -1,0 +1,15 @@
+.review_cont{
+    max-height: 77px;
+    overflow: hidden;
+    transition: 1s;
+}
+
+.review_cont:hover{
+    background-color: #f6f6f6;
+    transition: 0.3s;
+}
+
+.open{
+    max-height: 1200px;
+    transition: 1s;
+}

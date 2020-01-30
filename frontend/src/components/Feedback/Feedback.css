@@ -1,0 +1,68 @@
+.div_feedback{
+  width: 900px;
+  background-color: #f3f3f3;
+  border-radius: 10px;
+  box-shadow: 0 15px 25px #c2c2c2;
+  color: #CC4E46;
+  font-size: 20px;
+  margin: 45px auto;
+  padding: 30px 50px 60px 50px;
+}
+
+.div_feedback_color {
+  color: #CC4E46 !important;
+  background: #f3f3f3 !important;
+  width: 250px;
+  height: 50px;
+  /* border: 0.5px solid rgb(224, 224, 224)!important; */
+  margin: 3px !important; 
+}
+
+.input_feedback{
+  width: 550px;
+  height: 50px;
+  padding: 10px !important;
+  margin: 3px 3px 3px 0px !important;
+  border: 0.5px solid rgb(224, 224, 224);
+}
+
+.div_feedback_button{
+  display: flex;
+  justify-content: center;
+}
+
+.div_feedback_title{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  color:#b0352c;;
+  font-size: 30px;
+}
+
+.div_feedback_allbutton{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+
+.div_feedback_error{
+  display: flex !important;
+  justify-content: center !important;
+  width: 400px;
+  text-align: center;
+  padding: 10px !important;
+  margin: 25px auto !important;
+}
+
+select{
+  background:white; 
+  width: 60px !important;
+}
+ textarea{
+   font-size: 14px;
+ }
+
+ .input_feedback_big{
+  height: 100px;
+ }
+ 
