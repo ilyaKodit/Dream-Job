@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import './CompanyList.css';
-import Spinner from '../spinner/spinner';
+// import Spinner from '../spinner/spinner';
 
 const styles = {
   mockSearch: {

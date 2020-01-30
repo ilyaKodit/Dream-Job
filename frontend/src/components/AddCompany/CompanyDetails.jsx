@@ -83,7 +83,7 @@ export default class CompanyDetails extends Component {
         },
         body: JSON.stringify(obj)
       });
-      let data = await resp.json();
+      await resp.json();
       this.setState({
         error: false,
         loadingDB: true,
@@ -139,7 +139,7 @@ export default class CompanyDetails extends Component {
 
     const viewSite = site_url ?
       <div className="site-block">
-        <a href={site_url} target="_blank">{site_url}</a>
+        <a href={site_url} rel="noopener noreferrer">{site_url}</a>
       </div> :
       null;
 
