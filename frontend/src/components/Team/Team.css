@@ -18,7 +18,8 @@ body {
 }
 
 .team-section h1 {
-  font-size: 20px;
+  font-family: 'Fira Sans Extra Condensed', sans-serif;
+  font-size: 28px;
   text-transform: uppercase;
   display: inline-block;
   border-bottom: 4px solid;
@@ -27,7 +28,7 @@ body {
 
 .pe {
   float: left;
-  width: calc(100% / 3);
+  width: calc(100% / 4);
   overflow: hidden;
   padding: 40px 0;
   transition: 0.4s;

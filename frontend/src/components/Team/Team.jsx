@@ -2,30 +2,58 @@ import React from 'react';
 import './Team.css';
 import { SocialIcon } from 'react-social-icons';
 
-import photo1 from './p1.png';
+import photo1 from './DSC08951 1 copy1.jpg';
 import photo2 from './DSC07922 copy2.jpg';
-import photo3 from './p2.png';
-import photo4 from './p3.png';
+import photo3 from './Image from iOS (1).jpg';
+import photo4 from './DSC09064 1 copy1.jpg';
 
 export default function Team() {
   return (
     <div className="team-section">
       <div className="inner-width">
-        <h1>Meet Our Team</h1>
+        {/*<h1>Meet Our Team</h1>*/}
         <div className="pers">
           <div className="pe">
             <img src={photo1} alt="" />
-            <div className="p-name">Full Name</div>
-            <div className="p-des">Designer</div>
+            <div className="p-name">Ilya Makhovskiy</div>
+            <div className="p-des">Просто Team Lead</div>
             <div className="p-sm">
-              <a href="#">
-                <i className="fab fa-facebook-f"></i>
+              <a href="https://github.com/ilyaKodit">
+                <SocialIcon
+                  network="github"
+                  bgColor="#666666"
+                  style={{ height: 20, width: 20 }}
+                />
               </a>
-              <a href="#">
-                <i className="fab fa-twitter"></i>
+            </div>
+          </div>
+
+          <div className="pe">
+            <img src={photo3} alt="" />
+            <div className="p-name">Mike</div>
+            <div className="p-des">Человек-идея</div>
+            <div className="p-sm">
+              <a href="https://github.com/mikeAvdeev12">
+                <SocialIcon
+                  network="github"
+                  bgColor="#666666"
+                  style={{ height: 20, width: 20 }}
+                />
               </a>
-              <a href="#">
-                <i className="fab fa-instagram"></i>
+            </div>
+          </div>
+
+          <div className="pe">
+            <img src={photo4} alt="" />
+            <div className="p-name">Михаил</div>
+            <div className="p-des">Developer</div>
+            <div className="p-sm">
+              <a href="https://github.com/magroz">
+                <SocialIcon
+                  network="github"
+                  bgColor="#666666"
+                  style={{ height: 20, width: 20 }}
+                />
               </a>
             </div>
           </div>
@@ -33,60 +61,21 @@ export default function Team() {
           <div className="pe">
             <img src={photo2} alt="" />
             <div className="p-name">Batyrkhan Zhaparov</div>
-            <div className="p-des">Бешеный разработчик</div>
+            <div className="p-des">И все таки на удаленке</div>
             <div className="p-sm">
-              <a href="https://twitter.com/home">
+              <a href="https://www.linkedin.com/in/batyrqh/">
                 <SocialIcon
-                  network="twitter"
-                  bgColor="#ff5a01"
+                  network="linkedin"
+                  bgColor="#0270b2"
                   style={{ height: 20, width: 20 }}
                 />
-                {/* <i className="fab fa-facebook-f"></i> */}
               </a>
-              <a href="№">
+              <a href="https://github.com/batyr-qhan">
                 <SocialIcon
                   network="github"
-                  bgColor="#ff5a01"
+                  bgColor="#666666"
                   style={{ height: 20, width: 20 }}
                 />
-                {/* <i className="fab fa-twitter"></i> */}
-              </a>
-              {/* <a href="#">
-                <i className="fab fa-instagram"></i>
-              </a> */}
-            </div>
-          </div>
-
-          <div className="pe">
-            <img src={photo3} alt="" />
-            <div className="p-name">Full Name</div>
-            <div className="p-des">Developer</div>
-            <div className="p-sm">
-              <a href="#">
-                <i className="fab fa-facebook-f"></i>
-              </a>
-              <a href="#">
-                <i className="fab fa-twitter"></i>
-              </a>
-              <a href="#">
-                <i className="fab fa-instagram"></i>
-              </a>
-            </div>
-          </div>
-
-          <div className="pe">
-            <img src={photo4} alt="" />
-            <div className="p-name">Full Name</div>
-            <div className="p-des">Developer</div>
-            <div className="p-sm">
-              <a href="#">
-                <i className="fab fa-facebook-f"></i>
-              </a>
-              <a href="#">
-                <i className="fab fa-twitter"></i>
-              </a>
-              <a href="#">
-                <i className="fab fa-instagram"></i>
               </a>
             </div>
           </div>

@@ -20,11 +20,49 @@ const styles = {
 
 class MainPage extends Component {
 
+    state = {
+        searchString: "",
+    };
+
     componentDidMount = async () => {
+        await this.getData();
+    };
+
+    getData = async () => {
         let resp = await fetch('/companies');
         let data = await resp.json();
-
         this.props.loading(data);
+    };
+
+    onChangeInputSearch = async (e) => {
+        const text = e.target.value;
+        await this.setState({ searchString: text });
+        const {searchString} = this.state;
+        if (searchString) {
+            this.getFilteredData();
+        } else {
+            this.getData();
+        }
+
+    };
+
+    getFilteredData = async () => {
+        try {
+            const {searchString} = this.state;
+            console.log(JSON.stringify(searchString));
+            let resp = await fetch('/search/companies', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({searchString: searchString})
+            });
+
+            let data = await resp.json();
+            this.props.loading(data);
+        } catch (e) {
+            alert(e);
+        }
     };
 
     render() {
@@ -32,7 +70,7 @@ class MainPage extends Component {
             <>
                 <div className={'mainPage_cont'}>
                     <div className="ui icon input">
-                        <input style={styles.input} type="text" placeholder="Поиск компании"/>
+                        <input style={styles.input} type="text" placeholder="Поиск компании" onChange={this.onChangeInputSearch}/>
                         <i className="search icon"></i>
                     </div>
                     <Link to={'/add/employer/'} className="ui animated button" style={styles.button} tabIndex="0">
@@ -41,8 +79,6 @@ class MainPage extends Component {
                             <i className="right plus icon"></i>
                         </div>
                     </Link>
-
-                    {/*<Link to={'/add/employer/'}>Employer</Link>*/}
                 </div>
                 <div className={'container'}>
 

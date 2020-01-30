@@ -13,6 +13,13 @@ const styled1 = {
     color: 'white',
     background: 'rgb(185, 185, 185)',
     fontSize: '16px',
+  },
+  input1: {
+    fontSize: '16px',
+  },
+  input2: {
+    fontSize: '16px',
+    width: '180px',
   }
 };
 
@@ -75,6 +82,7 @@ class Feedback extends Component {
         rating: '',
         result: true,
       });
+     
     } else {
       this.setState({
         correct: !this.state.correct
@@ -92,39 +100,39 @@ class Feedback extends Component {
     return (
       <div>
         <div className='div_feedback'>
-          <div className='div_feedback_title'>Отзыв</div>
+          <div className='div_feedback_title'>Новый отзыв</div>
           <div className="ui labeled input">
             <div className="ui label div_feedback_color">Дата собеседования
         </div>
-            <input className="input_feedback" onChange={this.onChangeGlobal('interView')} type="date" value={this.state.interView}>
+            <input style={styled1.input2} className="input_feedback" onChange={this.onChangeGlobal('interView')} type="date" value={this.state.interView}>
             </input>
           </div>
           <div className="ui labeled input">
             <div className="ui label div_feedback_color">Вопросы на собеседование
         </div>
-            <textarea  className="input_feedback" onChange={this.onChangeGlobal('quest')} value={this.state.quest} />
+            <textarea id='123' className="input_feedback input_feedback_big" onChange={this.onChangeGlobal('quest')} value={this.state.quest} />
           </div>
           <div className="ui labeled input">
             <div className="ui label div_feedback_color">Задания на собеседование
         </div>
-            <textarea className="input_feedback" onChange={this.onChangeGlobal('task')} value={this.state.task} />
+            <textarea className="input_feedback input_feedback_big" onChange={this.onChangeGlobal('task')} value={this.state.task} />
           </div>
           <div className="ui labeled input">
             <div className="ui label div_feedback_color">Впечатление о компании
         </div>
-            <textarea className="input_feedback" onChange={this.onChangeGlobal('contentText')} value={this.state.contentText} />
+            <textarea className="input_feedback input_feedback_big" onChange={this.onChangeGlobal('contentText')} value={this.state.contentText} />
           </div>
           <div className="ui labeled input">
             <div className="ui label div_feedback_color">Оценка компании
         </div>
-            <select className="input_feedback" onChange={this.onChangeGlobal('rating')}  value={this.state.rating} >
-            <option></option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
+            <select style={styled1.input1} className="input_feedback" onChange={this.onChangeGlobal('rating')} value={this.state.rating} >
+              <option></option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
           </div>
         </div>
         <div className='div_feedback_allbutton'>
@@ -135,9 +143,9 @@ class Feedback extends Component {
                 <i className="right arrow icon"></i>
               </div>
             </div>
-          </div>
+          </div> 
           <div className="div_feedback_button">
-            <div style={styled1.button2} onClick={this.toPressButtonBack} className="ui animated button" tabindex="0">
+            <div style={styled1.button2} onClick={this.toPressButtonBack}className="ui animated button" tabindex="0">
               <div className="visible content">Назад</div>
               <div className="hidden content">
                 <i className="right arrow icon"></i>
@@ -147,14 +155,14 @@ class Feedback extends Component {
         </div>
         {this.state.correct && <div class="ui negative message div_feedback_error">
           <div class="header">
-          Перед отправкой заполните все поля формы
+            Перед отправкой заполните все поля формы
         </div>
-          </div>}
+        </div>}
         {this.state.buttonBack && <Redirect to={`/company/${this.props.match.params.id}`} />}
         {this.state.result && <Redirect to={`/company/${this.props.match.params.id}`} />}
         {!sessionStorage.user && <Redirect to="/main" />}
       </div>
-    
+
     )
   }
 };
