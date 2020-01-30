@@ -1,74 +1,73 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
-import { connect } from 'react-redux';
-import { Redirect } from "react-router-dom";
+import {connect} from 'react-redux';
+import {Redirect} from "react-router-dom";
 import './Registration.css'
-// import { withTheme } from 'styled-components';
+
 
 
 const styled = {
-  button: {
-    color: 'white',
-    background: '#CC4E46',
-    fontSize: '16px',
+    button: {
+        color: 'white',
+        background: '#CC4E46',
+        fontSize: '16px',
 
-  }
+    }
 };
 
 class Registration extends Component {
 
-  constructor(props) {
-    super(props);
+    constructor(props) {
+        super(props);
 
-    this.state = {
-      login: '',
-      pass: '',
-      pass2: '',
-      email: ''
-    }
-  }
-
-  onChangeGlobal = (name) => (event) => {
-    const newState = {};
-    newState[name] = event.target.value;
-    this.setState(newState);
-  };
-
-  registration = async (event) => {
-
-    if (this.state.pass === this.state.pass2) {
-
-      let resp = await fetch(
-        '/reg',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            login: this.state.login,
-            pass: this.state.pass,
-            email: this.state.email
-          })
+        this.state = {
+            login: '',
+            pass: '',
+            pass2: '',
+            email: ''
         }
-
-      );
-      let data = await resp.json();
-      console.log(data);
-      sessionStorage.name = data.login;
-      sessionStorage.user = data._id;
-      console.log(sessionStorage.user);
-
-      this.setState({
-        login: '',
-        pass: '',
-        pass2: '',
-        email: ''
-      });
-
-      window.location.reload();
     }
-  };
+
+    onChangeGlobal = (name) => (event) => {
+        const newState = {};
+        newState[name] = event.target.value;
+        this.setState(newState);
+    };
+
+    registration = async (event) => {
+
+        if (this.state.pass === this.state.pass2) {
+
+            let resp = await fetch(
+                '/reg',
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        login: this.state.login,
+                        pass: this.state.pass,
+                        email: this.state.email
+                    })
+                }
+            );
+            let data = await resp.json();
+            console.log(data);
+            sessionStorage.name = data.login;
+            sessionStorage.user = data._id;
+            console.log(sessionStorage.user);
+
+            this.setState({
+                login: '',
+                pass: '',
+                pass2: '',
+                email: ''
+            });
+
+            window.location.reload();
+        }
+    };
 
   render() {
     return (

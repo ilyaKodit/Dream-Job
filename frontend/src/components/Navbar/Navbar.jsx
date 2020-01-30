@@ -36,7 +36,7 @@ class Navbar extends Component {
                     {sessionStorage.user && <span className={'userName'}>{sessionStorage.name}</span>}
                     {sessionStorage.user && <Link onClick={this.logout} to={'/'} className={'nav_item'}>Logout</Link>}
                     {!sessionStorage.user && <Link className={'nav_item'} to={'/login'}>Sign In</Link>}
-                    {!sessionStorage.user && <Link className={'nav_item'} to={'/registration'}>Sign Up</Link>}
+                    {!sessionStorage.user && <Link className={'nav_item'} to={'/accessCheck'}>Sign Up</Link>}
                 </div>
 
             </div>
