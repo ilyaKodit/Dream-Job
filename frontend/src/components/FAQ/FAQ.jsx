@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import Question from './Question';
-import Header from './Header.jsx';
+// import Header from './Header.jsx';
 
 import './FAQ.css'
 
@@ -41,7 +41,7 @@ export default function FAQ() {
 
   return (
     <div className="App">
-      <Header />
+      {/*<Header />*/}
       <div className="faqs">
         {faqs.map((faq, i) => (
           <Question faq={faq} index={i} toggleFAQ={toggleFAQ} />

@@ -3,7 +3,7 @@ import React from 'react';
 function Header() {
   return (
     <header>
-      <h1>FAQ Page</h1>
+      {/*<h1>FAQ Page</h1>*/}
     </header>
   );
 }
