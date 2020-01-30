@@ -10,7 +10,7 @@ const styled = {
     color: 'white',
     background: '#CC4E46',
     fontSize: '16px',
-    
+
   }
 };
 
@@ -77,7 +77,7 @@ class Login extends Component {
           </div>
         </div>
         <div className="button_div">
-          <div style={styled.button} onClick={this.buttonPush} className="ui animated button" tabindex="0">
+          <div style={styled.button} onClick={this.buttonPush} className="ui animated button" tabIndex="0">
             <div className="visible content">Войти</div>
             <div className="hidden content">
               <i className="right arrow icon"></i>

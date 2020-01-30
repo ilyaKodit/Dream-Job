@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from "react-router-dom";
 import './Registration.css'
-import { withTheme } from 'styled-components';
+// import { withTheme } from 'styled-components';
 
 
 const styled = {
@@ -11,7 +11,7 @@ const styled = {
     color: 'white',
     background: '#CC4E46',
     fontSize: '16px',
-    
+
   }
 };
 
@@ -93,7 +93,7 @@ class Registration extends Component {
           </div>
           </div>
           <div className="button_div">
-          <div style={styled.button} onClick={this.registration} className="ui animated button" tabindex="0">
+          <div style={styled.button} onClick={this.registration} className="ui animated button" tabIndex="0">
             <div className="visible content">Войти</div>
             <div className="hidden content">
             <i className="right arrow icon"></i>
