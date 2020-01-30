@@ -5,6 +5,7 @@ import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {LoadingCompanies, LoadingFeedback} from "../../redux/creators";
 import Review from "../Review/Review";
+import Spinner from '../spinner/spinner';
 
 const styles = {
     image: {
@@ -125,11 +126,11 @@ class CompanyInfo extends Component {
 
                                         return <Review key={feed._id} data={feed} />
                                     })
-                                    : <div>Spiner</div>
+                                    : <Spinner/>
                             }
 
                         </div>
-                        : <div>Spiner</div>
+                        : <Spinner/>
                 }
 
                 {this.state.input && <Redirect to={`/feedback/${this.state.company.id}`}/>}

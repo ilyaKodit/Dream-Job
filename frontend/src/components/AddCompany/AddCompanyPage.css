@@ -1,6 +1,9 @@
-/*.row {*/
-/*    display: flex;*/
-/*}*/
-/*.col {*/
-/*    flex-grow: 1;*/
-/*}*/
+.parent {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.child {
+    min-width: 500px;
+    width: 20%;
+}

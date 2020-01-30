@@ -103,7 +103,7 @@ router.post('/add/employer', async (req, res) => {
       .then(res.json({status: 'Успешно добавлено'}))
       .catch(res.json({status: 'Ошибка при сохранении в базу данных'}))
   }
-  await res.json({status: 'Уже добавлено ёпта'});
+  await res.json({status: 'Уже добавлено'});
 });
 
 module.exports = router;

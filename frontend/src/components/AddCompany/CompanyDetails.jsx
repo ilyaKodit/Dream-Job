@@ -50,7 +50,7 @@ export default class CompanyDetails extends Component {
     })
   };
 
-  onError = () => {
+  onError = (e) => {
     this.setState({
       error: true,
       // errorText: err,
@@ -89,7 +89,7 @@ export default class CompanyDetails extends Component {
         loadingDB: true,
       });
     } catch (e) {
-      this.onError();
+      this.onError(e);
     }
   };
 
