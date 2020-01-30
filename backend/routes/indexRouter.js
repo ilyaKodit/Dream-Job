@@ -106,4 +106,11 @@ router.post('/add/employer', async (req, res) => {
   await res.json({status: 'Уже добавлено'});
 });
 
+router.post('/search/companies', async (req, res) => {
+  const allCompanies = await Company.find();
+  const searchStr = req.body.searchString.toLowerCase().trim();
+  const filteredCompanies = allCompanies.filter(item => item.name.toLowerCase().search(searchStr) !== -1);
+  res.json(filteredCompanies);
+});
+
 module.exports = router;
