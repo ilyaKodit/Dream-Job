@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './Home.css';
-// import cloudPic from './ic-Cloud-red.png';
+import cloudPic from './ic-Cloud-red.png';
 
 export default function Home() {
   return (
