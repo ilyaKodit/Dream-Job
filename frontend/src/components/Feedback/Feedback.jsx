@@ -16,6 +16,10 @@ const styled1 = {
   },
   input1: {
     fontSize: '16px',
+  },
+  input2: {
+    fontSize: '16px',
+    width: '180px',
   }
 };
 
@@ -100,7 +104,7 @@ class Feedback extends Component {
           <div className="ui labeled input">
             <div className="ui label div_feedback_color">Дата собеседования
         </div>
-            <input style={styled1.input1} className="input_feedback" onChange={this.onChangeGlobal('interView')} type="date" value={this.state.interView}>
+            <input style={styled1.input2} className="input_feedback" onChange={this.onChangeGlobal('interView')} type="date" value={this.state.interView}>
             </input>
           </div>
           <div className="ui labeled input">
