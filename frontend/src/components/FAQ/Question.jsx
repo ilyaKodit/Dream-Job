@@ -17,4 +17,4 @@ function Question ({faq, index, toggleFAQ}) {
 	)
 }
 
-export default Question
+export default Question;
