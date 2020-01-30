@@ -41,7 +41,7 @@ export default function FAQ() {
     <div className="App">
       <div className="faqs">
         {faqs.map((faq, i) => (
-          <Question faq={faq} index={i} toggleFAQ={toggleFAQ} />
+          <Question key={i} faq={faq} index={i} toggleFAQ={toggleFAQ} />
         ))}
       </div>
     </div>

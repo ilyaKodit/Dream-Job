@@ -82,7 +82,7 @@ class Feedback extends Component {
         rating: '',
         result: true,
       });
-     
+
     } else {
       this.setState({
         correct: !this.state.correct
@@ -137,15 +137,15 @@ class Feedback extends Component {
         </div>
         <div className='div_feedback_allbutton'>
           <div className="div_feedback_button">
-            <div style={styled1.button} onClick={this.toPressButton} className="ui animated button" tabindex="0">
+            <div style={styled1.button} onClick={this.toPressButton} className="ui animated button" tabIndex="0">
               <div className="visible content">Добавить отзыв</div>
               <div className="hidden content">
                 <i className="right arrow icon"></i>
               </div>
             </div>
-          </div> 
+          </div>
           <div className="div_feedback_button">
-            <div style={styled1.button2} onClick={this.toPressButtonBack}className="ui animated button" tabindex="0">
+            <div style={styled1.button2} onClick={this.toPressButtonBack}className="ui animated button" tabIndex="0">
               <div className="visible content">Назад</div>
               <div className="hidden content">
                 <i className="right arrow icon"></i>

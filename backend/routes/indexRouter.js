@@ -2,6 +2,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const session = require('express-session');
+const faker = require('faker');
 
 const bcrypt = require('bcrypt');
 // const { sessionChecker } = require('../middleware/auth');
@@ -12,6 +13,7 @@ const router = express.Router();
 const User = require('../models/user');
 const Feedback = require('../models/feedback');
 const Company = require('../models/company');
+const Key = require('../models/key');
 
 
 let averageRating = async (companyId) => {
@@ -129,11 +131,40 @@ router.post('/add/employer', async (req, res) => {
   await res.json({status: 'Уже добавлено'});
 });
 
+
+router.post('/key', async (req, res) => {
+
+  let result = await Key.findOne({key: req.body.key});
+
+  res.json({status: result});
+
+});
+
+router.post('/createKey', async (req, res) => {
+
+  let allCreateKeys = [];
+
+  for (let i = 0; i < req.body.num ; i++) {
+
+    let key = await faker.random.number(100000000000);
+    let newKey = new Key({
+      key: key
+    });
+    newKey.save();
+
+    allCreateKeys.push(key);
+  }
+
+  res.json({keys: allCreateKeys});
+
+});
+
 router.post('/search/companies', async (req, res) => {
   const allCompanies = await Company.find();
   const searchStr = req.body.searchString.toLowerCase().trim();
   const filteredCompanies = allCompanies.filter(item => item.name.toLowerCase().search(searchStr) !== -1);
   res.json(filteredCompanies);
+
 });
 
 module.exports = router;
