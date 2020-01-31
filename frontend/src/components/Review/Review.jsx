@@ -79,21 +79,21 @@ class Review extends Component {
                     <p style={styles.heading} data-id={this.props.data._id}>Отзыв</p>
                     <div className="ui segments">
                         <div data-id={this.props.data._id} className="ui segment">
-                            <pre style={styles.text} data-id={this.props.data._id}>{this.props.data.contentText}</pre>
+                            <p className='text-wrap' style={styles.text} data-id={this.props.data._id}>{this.props.data.contentText}</p>
                         </div>
                     </div>
 
                     <p style={styles.heading} data-id={this.props.data._id}>Вопросы на собеседовании</p>
                     <div className="ui segments">
                         <div data-id={this.props.data._id} className="ui segment">
-                            <pre style={styles.text} data-id={this.props.data._id}>{this.props.data.questions}</pre>
+                            <p className='text-wrap' style={styles.text} data-id={this.props.data._id}>{this.props.data.questions}</p>
                         </div>
                     </div>
 
                     <p style={styles.heading} data-id={this.props.data._id}>Задачи на собеседовании</p>
                     <div className="ui segments">
                         <div data-id={this.props.data._id} className="ui segment">
-                            <pre style={styles.text} data-id={this.props.data._id}>{this.props.data.tasks}</pre>
+                            <p className='text-wrap' style={styles.text} data-id={this.props.data._id}>{this.props.data.tasks}</p>
                         </div>
                     </div>
 

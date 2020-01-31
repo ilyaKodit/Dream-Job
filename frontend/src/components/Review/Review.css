@@ -13,3 +13,7 @@
     max-height: 1200px;
     transition: 1s;
 }
+
+.text-wrap {
+    white-space: pre-wrap;
+}
