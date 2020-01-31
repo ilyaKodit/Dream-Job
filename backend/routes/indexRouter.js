@@ -16,9 +16,8 @@ const Company = require('../models/company');
 const Key = require('../models/key');
 
 
-let averageRating = async (companyId) => {
-
-  let allFeedbackCompany = await Feedback.find({companyId: companyId});
+const averageRating = async (companyId) => {
+  const allFeedbackCompany = await Feedback.find({ companyId });
   // console.log(allFeedbackCompany);
   let allRating = 0;
   let totalReviews = 0;
@@ -27,13 +26,12 @@ let averageRating = async (companyId) => {
     totalReviews += 1;
   });
 
-  let result = await Company.findOneAndUpdate({id: companyId}, {
+  const result = await Company.findOneAndUpdate({ id: companyId }, {
     averageRating: +(allRating / totalReviews).toFixed(1),
-    count: totalReviews
+    count: totalReviews,
   });
   result.save();
-   // return +(allRating / totalReviews).toFixed(1);
-
+  // return +(allRating / totalReviews).toFixed(1);
 };
 
 
@@ -55,8 +53,7 @@ router.post('/log', async (req, res) => {
     // if (newUser && newUser.password === password) {
     // req.session.user = newUser;
     res.json({ id: newUser._id, login: newUser.login });
-  }
-  // } else res.json({ status: false })
+  } else { res.json({ status: false }); }
 });
 
 router.post('/reg', async (req, res) => {
@@ -87,18 +84,18 @@ router.post('/reg', async (req, res) => {
 });
 
 router.get('/feed', async (req, res) => {
-
-  let allFeedback = await Feedback.find();
+  const allFeedback = await Feedback.find();
   res.json(allFeedback);
 });
 
 router.post('/feed', async (req, res) => {
+  const {
+    userId, companyId, interView, quest, task, contentText, rating,
+  } = req.body;
 
-  const { userId, companyId, interView, quest, task, contentText, rating } = req.body;
+  const user = await User.find({ _id: userId });
 
-  let user = await User.find({_id: userId});
-
-  let newFeed = new Feedback({
+  const newFeed = new Feedback({
     userId,
     companyId,
     interviewDate: interView,
@@ -107,64 +104,55 @@ router.post('/feed', async (req, res) => {
     tasks: task,
     contentText,
     rating,
-    userName: user[0].login
+    userName: user[0].login,
   });
 
-  newFeed.save().then( async (data) => {
-
+  newFeed.save().then(async (data) => {
     await averageRating(companyId);
     res.json(data);
-
   });
-
 });
 
 router.post('/add/employer', async (req, res) => {
   console.log(req.body);
   const existenceCompany = await Company.findOne({ id: req.body.id });
   if (!existenceCompany) {
-    let newEmployer = new Company(req.body);
+    const newEmployer = new Company(req.body);
     newEmployer.save()
-      .then(res.json({status: 'Успешно добавлено'}))
-      .catch(res.json({status: 'Ошибка при сохранении в базу данных'}))
+      .then(res.json({ status: 'Успешно добавлено' }))
+      .catch(res.json({ status: 'Ошибка при сохранении в базу данных' }));
   }
-  await res.json({status: 'Уже добавлено'});
+  await res.json({ status: 'Уже добавлено' });
 });
 
 
 router.post('/key', async (req, res) => {
+  const result = await Key.findOne({ key: req.body.key });
 
-  let result = await Key.findOne({key: req.body.key});
-
-  res.json({status: result});
-
+  res.json({ status: result });
 });
 
 router.post('/createKey', async (req, res) => {
+  const allCreateKeys = [];
 
-  let allCreateKeys = [];
-
-  for (let i = 0; i < req.body.num ; i++) {
-
-    let key = await faker.random.number(100000000000);
-    let newKey = new Key({
-      key: key
+  for (let i = 0; i < req.body.num; i++) {
+    const key = await faker.random.number(100000000000);
+    const newKey = new Key({
+      key,
     });
     newKey.save();
 
     allCreateKeys.push(key);
   }
 
-  res.json({keys: allCreateKeys});
-
+  res.json({ keys: allCreateKeys });
 });
 
 router.post('/search/companies', async (req, res) => {
   const allCompanies = await Company.find();
   const searchStr = req.body.searchString.toLowerCase().trim();
-  const filteredCompanies = allCompanies.filter(item => item.name.toLowerCase().search(searchStr) !== -1);
+  const filteredCompanies = allCompanies.filter((item) => item.name.toLowerCase().search(searchStr) !== -1);
   res.json(filteredCompanies);
-
 });
 
 module.exports = router;

@@ -48,11 +48,11 @@ class Feedback extends Component {
 
   toPressButton = async () => {
     if (
-      this.state.interView.length &&
-      this.state.quest.length &&
-      this.state.task.length &&
-      this.state.contentText.length &&
-      this.state.rating.length
+      this.state.interView &&
+      this.state.quest &&
+      this.state.task &&
+      this.state.contentText &&
+      this.state.rating
     ) {
       let resp = await fetch('/feed', {
         method: 'POST',
@@ -85,7 +85,7 @@ class Feedback extends Component {
 
     } else {
       this.setState({
-        correct: !this.state.correct
+        correct: true
       })
     }
   };
