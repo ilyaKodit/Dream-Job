@@ -7,7 +7,7 @@
 }
 
 .cloudPic {
-  margin: 100px;
+  margin: 50px;
   width: 700px;
 }
 
@@ -18,7 +18,7 @@ p.slogan {
   font-family: 'Source Code Pro', monospace;
   font-size: 25px;
   color: black;
-  margin: -280px;
+  margin: -250px;
   display: table-cell;
   vertical-align: middle;
   text-align: center;
@@ -26,8 +26,9 @@ p.slogan {
 
 /* Animation */
 p.sloganLine1 {
-  animation: animated-text 4s steps(29, end) 1s 1,
+  animation: animated-text 1.5s steps(29, end) 1s 1,
     animated-cursor 600ms steps(29, end) infinite;
+   
 }
 
 @keyframes animated-text {
@@ -35,8 +36,9 @@ p.sloganLine1 {
     width: 0;
   }
   to {
-    width: 350px;
+    width: 360px;
   }
+
 }
 /* cursor animations */
 @keyframes animated-cursor {

@@ -34,8 +34,8 @@ export default function Team() {
           <div className="pe">
 
             <img src={photo3} alt=""/>
-            <div className="p-name">Mike</div>
-            <div className="p-des">Человек-идея</div>
+            <div className="p-name">Mike Avdeev</div>
+            <div className="p-des">Developer</div>
             <div className="p-sm">
               <SocialIcon
                 url="https://github.com/mikeAvdeev12"
