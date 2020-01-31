@@ -1,0 +1,6 @@
+.selectDiv {
+    -ms-user-select: all;
+    -moz-user-select: all;
+    -khtml-user-select: all;
+    -webkit-user-select: all;
+}

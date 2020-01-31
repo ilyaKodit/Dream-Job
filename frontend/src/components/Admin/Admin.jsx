@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 
+import './Admin.css';
+
 const styles = {
     button: {
         background: '#CC4E46',
@@ -106,7 +108,7 @@ class Admin extends Component {
                     </div>
                 </div>
 
-                <div style={styles.group2}>
+                <div style={styles.group2} className="ui segment">
                     {
                         this.state.list.length ?
 
@@ -116,7 +118,7 @@ class Admin extends Component {
                                         <div className="ui middle aligned selection list">
                                             <div className="item">
                                                 <div className="content">
-                                                    <div style={styles.text} className="header">{key}</div>
+                                                    <div style={styles.text} className="header selectDiv">{key}</div>
                                                 </div>
                                             </div>
                                         </div>
