@@ -153,7 +153,7 @@ class Feedback extends Component {
             </div>
           </div>
         </div>
-        {this.state.correct && <div class="ui negative message div_feedback_error">
+        {this.state.correct && <div className="ui negative message div_feedback_error">
           <div className="header">
             Перед отправкой заполните все поля формы
         </div>
