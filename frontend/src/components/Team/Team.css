@@ -6,13 +6,13 @@ body {
 
 .team-section {
   background: white;
-  margin: 80px 450px 20px 450px;
+  margin: 80px 350px 20px 350px;
   border-radius: 15px;
   
 }
 
 .inner-width {
-  max-width: 900px;
+  max-width: 1400px;
   margin:  auto;
   padding: 40px;
   color: #333;
@@ -44,24 +44,28 @@ body {
 }
 
 .pe img {
-  width: 120px;
-  height: 120px;
+  width: 200px;
+  height: 200px;
 }
 
 .p-name {
   text-transform: uppercase;
   text-align: center;
+  width: 200px;
+  font-size: 18px;
+  margin: 10px 0px 5px 0px;
 }
 
 .p-des {
-  font-style: italic;
-  color: #CC4E46;
+  /* font-style: italic; */
   text-align: center;
+  width: 200px;
 }
 
 .p-sm {
   margin-top: 12px;
   text-align: center;
+  width: 200px;
 }
 
 .p-sm a {
