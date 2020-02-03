@@ -5,7 +5,7 @@ const Company = require('./company');
 const faker = require('faker');
 
 async function seed() {
-  connect('mongodb+srv://admin:admin@cluster0-a7swf.mongodb.net/dreamjob?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
+  connect(process.env.MONGOOSE_URL, { useNewUrlParser: true, useUnifiedTopology: true });
   const user = new User({
     login: faker.name.findName(),
     password: faker.internet.password(),
