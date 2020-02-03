@@ -8,7 +8,8 @@ export default function Home() {
     <div className="home">
       <img className="cloudPic" src={cloudPic} alt="cloud" />
       <p className="sloganLine1 slogan">
-      Мы здесь, чтобы помочь!
+      Мы здесь, чтобы помочь <br/>
+      найти работу мечты!
       </p>
     </div>
   );
