@@ -10,7 +10,7 @@ const FileStore = require('session-file-store')(session);
 const app = express();
 
 connect(
-  'mongodb+srv://admin:admin@cluster0-a7swf.mongodb.net/dreamjob?retryWrites=true&w=majority',
+  process.env.MONGOOSE_URL,
   { useNewUrlParser: true, useUnifiedTopology: true },
 );
 
@@ -26,6 +26,10 @@ app.use(
     },
   }),
 );
+
+const publicPath = path.join(__dirname, '..', 'build');
+app.use(express.static(publicPath));
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
