@@ -48,11 +48,11 @@ class Feedback extends Component {
 
   toPressButton = async () => {
     if (
-      this.state.interView.length &&
-      this.state.quest.length &&
-      this.state.task.length &&
-      this.state.contentText.length &&
-      this.state.rating.length
+      this.state.interView &&
+      this.state.quest &&
+      this.state.task &&
+      this.state.contentText &&
+      this.state.rating
     ) {
       let resp = await fetch('/feed', {
         method: 'POST',
@@ -82,10 +82,10 @@ class Feedback extends Component {
         rating: '',
         result: true,
       });
-     
+
     } else {
       this.setState({
-        correct: !this.state.correct
+        correct: true
       })
     }
   };
@@ -137,15 +137,15 @@ class Feedback extends Component {
         </div>
         <div className='div_feedback_allbutton'>
           <div className="div_feedback_button">
-            <div style={styled1.button} onClick={this.toPressButton} className="ui animated button" tabindex="0">
+            <div style={styled1.button} onClick={this.toPressButton} className="ui animated button" tabIndex="0">
               <div className="visible content">Добавить отзыв</div>
               <div className="hidden content">
                 <i className="right arrow icon"></i>
               </div>
             </div>
-          </div> 
+          </div>
           <div className="div_feedback_button">
-            <div style={styled1.button2} onClick={this.toPressButtonBack}className="ui animated button" tabindex="0">
+            <div style={styled1.button2} onClick={this.toPressButtonBack}className="ui animated button" tabIndex="0">
               <div className="visible content">Назад</div>
               <div className="hidden content">
                 <i className="right arrow icon"></i>
@@ -153,8 +153,8 @@ class Feedback extends Component {
             </div>
           </div>
         </div>
-        {this.state.correct && <div class="ui negative message div_feedback_error">
-          <div class="header">
+        {this.state.correct && <div className="ui negative message div_feedback_error">
+          <div className="header">
             Перед отправкой заполните все поля формы
         </div>
         </div>}

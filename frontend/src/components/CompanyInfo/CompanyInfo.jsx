@@ -63,26 +63,12 @@ class CompanyInfo extends Component {
         let dataFeed = await respFeed.json();
         this.props.loadingFeed(dataFeed);
 
-        this.props.companies.map((company) => {
+        const companyD = this.props.companies.find((company) => company.id === this.props.match.params.id);
 
-            if (company.id === this.props.match.params.id) {
-                this.setState({
-                    company: company,
-                    feeds: this.state.feeds,
-                    checked: this.state.checked
-                })
-            }
-        });
-
-        let userFeedback = this.props.feedback.filter((feed) => {
-
-            if (feed.companyId === this.props.match.params.id) {
-                return feed;
-            }
-        });
+        const userFeedback = this.props.feedback.filter((feed) => feed.companyId === this.props.match.params.id);
 
         this.setState({
-            company: this.state.company,
+            company: companyD,
             feeds: userFeedback,
             checked: this.state.checked
         });

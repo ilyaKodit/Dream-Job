@@ -5,20 +5,23 @@ body {
 }
 
 .team-section {
-  background: #f1f1f1;
-  text-align: center;
+  background: white;
+  margin: 80px 350px 20px 350px;
+  border-radius: 15px;
+  
 }
 
 .inner-width {
-  max-width: 1200px;
-  margin: auto;
+  max-width: 1400px;
+  margin:  auto;
   padding: 40px;
   color: #333;
   overflow: hidden;
 }
 
 .team-section h1 {
-  font-size: 20px;
+  font-family: 'Fira Sans Extra Condensed', sans-serif;
+  font-size: 28px;
   text-transform: uppercase;
   display: inline-block;
   border-bottom: 4px solid;
@@ -26,34 +29,43 @@ body {
 }
 
 .pe {
+  
   float: left;
-  width: calc(100% / 3);
+  width: calc(100% / 4);
   overflow: hidden;
-  padding: 40px 0;
+  padding: 40px;
   transition: 0.4s;
+  border-radius: 10px;
 }
 
 .pe:hover {
   background: #ddd;
+  
 }
 
 .pe img {
-  width: 120px;
-  height: 120px;
+  width: 200px;
+  height: 200px;
 }
 
 .p-name {
-  margin: 16px 0;
   text-transform: uppercase;
+  text-align: center;
+  width: 200px;
+  font-size: 18px;
+  margin: 10px 0px 5px 0px;
 }
 
 .p-des {
-  font-style: italic;
-  color: #3498db;
+  /* font-style: italic; */
+  text-align: center;
+  width: 200px;
 }
 
 .p-sm {
   margin-top: 12px;
+  text-align: center;
+  width: 200px;
 }
 
 .p-sm a {

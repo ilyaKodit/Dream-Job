@@ -10,7 +10,7 @@ const styled = {
     color: 'white',
     background: '#CC4E46',
     fontSize: '16px',
-    
+
   }
 };
 
@@ -20,6 +20,8 @@ class Login extends Component {
     this.state = {
       login: '',
       password: '',
+      status: false,
+      correct: false,
     }
   };
 
@@ -38,27 +40,44 @@ class Login extends Component {
   };
 
   buttonPush = async () => {
-    let resp = await fetch('/log', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        login: this.state.login,
-        password: this.state.password,
-      })
-    });
+    if (this.state.login && this.state.password
+    ) {
+      let resp = await fetch('/log', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          login: this.state.login,
+          password: this.state.password,
+        })
+      });
     let data = await resp.json();
-    // console.log(data);
-    sessionStorage.user = data.id;
-    sessionStorage.name = data.login;
-    console.log(sessionStorage.user);
+    console.log(data);
+    if (data.id) {
+      sessionStorage.user = data.id;
+      sessionStorage.name = data.login;
+      console.log(sessionStorage.user);
+      this.setState({
+        login: '',
+        password: '',
+      });
+      window.location.reload();
+    } else {
+      this.setState({
+        status: true,
+        login: '',
+        password: '',
+      });
+    }
+  } else{
     this.setState({
+      correct: true,
       login: '',
       password: '',
     });
-    window.location.reload();
-  };
+  }
+  }
 
   render() {
     return (
@@ -71,13 +90,13 @@ class Login extends Component {
             <i className="icon user outline"></i>
           </div>
           <div className="field ui right icon input">
-            <input placeholder='Введите пароль' onChange={event => this.InputValuePassword(event.target.value)} value={this.state.password} >
+            <input type={'password'} placeholder='Введите пароль' onChange={event => this.InputValuePassword(event.target.value)} value={this.state.password} >
             </input>
             <i className="icon lock"></i>
           </div>
         </div>
         <div className="button_div">
-          <div style={styled.button} onClick={this.buttonPush} className="ui animated button" tabindex="0">
+          <div style={styled.button} onClick={this.buttonPush} className="ui animated button" tabIndex="0">
             <div className="visible content">Войти</div>
             <div className="hidden content">
               <i className="right arrow icon"></i>
@@ -85,6 +104,17 @@ class Login extends Component {
           </div>
         </div>
         {sessionStorage.user && <Redirect to="/main" />}
+        {this.state.status && <div class="ui negative message div_feedback_error">
+          <div className="header">
+            Не удаётся войти. Пожалуйста, проверьте правильность написания логина и пароля.
+        </div>
+        </div>}
+        {this.state.correct && <div class="ui negative message div_feedback_error">
+          <div className="header">
+          Перед отправкой заполните все поля формы
+        </div>
+        </div>}
+        
       </>
     )
   }
