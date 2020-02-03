@@ -83,11 +83,11 @@ class Registration extends Component {
           <i className="icon envelope outline"></i>
           </div>
           <div className="field ui right icon input">
-          <input required onChange={this.onChangeGlobal('pass')} type="text" placeholder={'Введите пароль'} value={this.state.pass} />
+          <input required onChange={this.onChangeGlobal('pass')} type="password" placeholder={'Введите пароль'} value={this.state.pass} />
           <i className="icon lock"></i>
           </div>
           <div className="field ui right icon input">
-          <input required onChange={this.onChangeGlobal('pass2')} type="text" placeholder={'Введите пароль еще раз'} value={this.state.pass2} />
+          <input required onChange={this.onChangeGlobal('pass2')} type="password" placeholder={'Введите пароль еще раз'} value={this.state.pass2} />
           <i className="icon lock"></i>
           </div>
           </div>
