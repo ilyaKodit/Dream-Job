@@ -4,7 +4,8 @@
   "description": "Приватный проект для Elbrus Bootcamp, позволяющий всему учащимся и учившимся просматривать и создавать отзывы о собеседованиях.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cd backend && npm install && npm start",
+    "heroku-postbuild": "cd frontend && npm install && npm run build && cp -r build ../backend/"
   },
   "repository": {
     "type": "git",
