@@ -17,6 +17,11 @@ connect(
 const publicPath = path.join(__dirname, '/frontend/build');
 app.use(express.static(publicPath));
 
+app.get('*', (req, res) => {
+    let path;
+    res.sendFile(`${__dirname}/frontend/build/index.html`);
+});
+
 app.use(
   session({
     store: new FileStore(),
