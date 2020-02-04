@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
-const indexRouter = require('./routes/indexRouter');
+
 const { connect } = mongoose;
 const bodyParser = require('body-parser');
 const session = require('express-session');
@@ -15,11 +15,11 @@ connect(
 );
 
 const publicPath = path.join(__dirname,'/build');
-app.use(express.static(publicPath))
+app.use(express.static(publicPath));
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(publicPath, 'index.html'));
-});
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(publicPath, 'index.html'));
+// });
 
 app.use(
   session({
@@ -39,7 +39,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
 
-
+const indexRouter = require('./routes/indexRouter');
 app.use('/', indexRouter);
 
 // app.use(function (req, res, next) {

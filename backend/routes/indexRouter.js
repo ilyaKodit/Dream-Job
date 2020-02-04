@@ -40,6 +40,7 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/companies', async (req, res) => {
+  console.log('1');
   const allCompanies = await Company.find();
 
   res.json(allCompanies);
