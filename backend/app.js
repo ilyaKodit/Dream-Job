@@ -13,7 +13,8 @@ connect(
   process.env.MONGOOSE_URL,
   { useNewUrlParser: true, useUnifiedTopology: true },
 );
-const publicPath = path.join(__dirname, '..', 'build');
+
+const publicPath = path.join(__dirname, '/frontend/build');
 app.use(express.static(publicPath));
 
 app.use(
