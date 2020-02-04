@@ -15,7 +15,7 @@ const styled = {
 
 class Login extends Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             login: '',
             password: '',
@@ -61,7 +61,8 @@ class Login extends Component {
                     login: '',
                     password: '',
                 });
-                // window.location.reload();
+                window.location.reload();
+
                 this.props.history.push(`main`);
             } else {
                 this.setState({

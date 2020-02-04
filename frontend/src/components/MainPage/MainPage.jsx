@@ -20,9 +20,13 @@ const styles = {
 
 class MainPage extends Component {
 
-    state = {
-        searchString: "",
-    };
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            searchString: ""
+        }
+    }
 
     componentDidMount = async () => {
         await this.getData();
