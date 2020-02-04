@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './Main.css';
 import Home from '../Home/Home';
@@ -13,30 +13,34 @@ import CompanyInfo from '../CompanyInfo/CompanyInfo';
 import AccessCheck from "../AccessCheck/AccessCheck";
 import Admin from "../Admin/Admin";
 import Error from '../Error/Error';
+import {connect} from 'react-redux';
 
-function Main() {
-  return (
-    <main>
-      <Switch>
+class Main extends Component {
 
-        <Route exact path="/" component={Home}/>
-        <Route path="/login" component={Login}/>
-        <Route path="/registration" component={Registration}/>
-        <Route path="/accessCheck" component={AccessCheck}/>
-        <Route path="/admin" component={Admin}/>
-        <Route path="/faq" component={FAQ}/>
-        <Route path="/team" component={Team}/>
-        <Route path="/main" component={MainPage}/>
-        <Route path="/company/:id" component={CompanyInfo}/>
-        <Route path='/add/employer/:id?' component={AddCompanyPage}/>
-        <Route path="/feedback/:id" component={Feedback}/>
-        <Route component={Error}/>
+  render() {
+    return (
+        <main>
+          <Switch>
 
-      </Switch>
-    </main>
+            <Route exact path="/" component={Home}/>
+            <Route path="/login" component={Login}/>
+            <Route path="/registration" component={Registration}/>
+            <Route path="/accessCheck" component={AccessCheck}/>
+            <Route path="/admin" component={Admin}/>
+            <Route path="/faq" component={FAQ}/>
+            <Route path="/team" component={Team}/>
+            <Route path="/main" component={MainPage}/>
+            <Route path="/company/:id" component={CompanyInfo}/>
+            <Route path='/add/employer/:id?' component={AddCompanyPage}/>
+            <Route path="/feedback/:id" component={Feedback}/>
+            <Route component={Error}/>
 
-  );
+          </Switch>
+        </main>
+
+    );
+  }
+
 }
 
-export default Main;
-
+export default connect()(Main)
