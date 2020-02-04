@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
-
+const indexRouter = require('./routes/indexRouter');
 const { connect } = mongoose;
 const bodyParser = require('body-parser');
 const session = require('express-session');
@@ -14,12 +14,11 @@ connect(
   { useNewUrlParser: true, useUnifiedTopology: true },
 );
 
-const publicPath = path.join(__dirname, '/frontend/build');
-app.use(express.static(publicPath));
+const publicPath = path.join(__dirname,'/build');
+app.use(express.static(publicPath))
 
 app.get('*', (req, res) => {
-    let path;
-    res.sendFile(`${__dirname}/frontend/build/index.html`);
+  res.sendFile(path.join(publicPath, 'index.html'));
 });
 
 app.use(
@@ -39,7 +38,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
-const indexRouter = require('./routes/indexRouter');
+
 
 app.use('/', indexRouter);
 
