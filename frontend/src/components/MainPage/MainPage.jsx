@@ -31,6 +31,7 @@ class MainPage extends Component {
     getData = async () => {
         let resp = await fetch('/companies');
         let data = await resp.json();
+
         this.props.loading(data);
     };
 
