@@ -5,8 +5,5 @@
   "scripts": {
     "start": "cd backend && npm install && npm start",
     "heroku-postbuild": "cd frontend && npm install && npm run build && cp -r build ../backend/"
-  },
-  "dependencies": {
-    "react-social-icons": "^4.1.0"
   }
 }
