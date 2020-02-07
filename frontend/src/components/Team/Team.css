@@ -8,11 +8,11 @@ body {
   background: white;
   margin: 80px 350px 20px 350px;
   border-radius: 15px;
-  
+  min-width: 400px;
 }
 
 .inner-width {
-  max-width: 1400px;
+  max-width: 1800px;
   margin:  auto;
   padding: 40px;
   color: #333;
@@ -28,10 +28,17 @@ body {
   padding-bottom: 10px;
 }
 
+.pers_flex{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 .pe {
-  
+
   float: left;
   width: calc(100% / 4);
+  min-width: 280px;
   overflow: hidden;
   padding: 40px;
   transition: 0.4s;
@@ -40,7 +47,7 @@ body {
 
 .pe:hover {
   background: #ddd;
-  
+
 }
 
 .pe img {
