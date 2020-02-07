@@ -97,7 +97,7 @@ class MainPage extends Component {
                             : <div>Не добавлено ни одной компании</div>
                     }
 
-                    {!sessionStorage.user && <Redirect to={`/login`}/>}
+                    {!sessionStorage.user && <Redirect to={`/home`}/>}
                 </div>
             </>
 
