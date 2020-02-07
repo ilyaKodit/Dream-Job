@@ -25,14 +25,12 @@ class Login extends Component {
     };
 
     InputValueLogin(value) {
-        console.log(value);
         this.setState({
             login: value,
         })
     };
 
     InputValuePassword(value) {
-        console.log(value);
         this.setState({
             password: value,
         })
@@ -56,7 +54,6 @@ class Login extends Component {
             if (data.id) {
                 sessionStorage.user = data.id;
                 sessionStorage.name = data.login;
-                console.log(sessionStorage.user);
                 this.setState({
                     login: '',
                     password: '',
