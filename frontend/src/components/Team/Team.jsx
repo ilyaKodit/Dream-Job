@@ -11,7 +11,7 @@ export default function Team() {
   return (
     <div className="team-section">
       <div className="inner-width">
-        <div className="pers">
+        <div className="pers pers_flex">
           <div className="pe">
 
             <img src={photo1} alt="Ilya" />
