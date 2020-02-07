@@ -53,10 +53,9 @@ class Registration extends Component {
                 }
             );
             let data = await resp.json();
-            console.log(data);
+
             sessionStorage.name = data.login;
             sessionStorage.user = data._id;
-            console.log(sessionStorage.user);
 
             this.setState({
                 login: '',

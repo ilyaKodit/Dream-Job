@@ -40,10 +40,15 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/companies', async (req, res) => {
-  console.log('1');
   const allCompanies = await Company.find();
 
   res.json(allCompanies);
+});
+
+router.delete('/companies', async (req, res) => {
+  await Company.findOneAndDelete({id: req.body.id});
+
+  res.json({});
 });
 
 router.post('/log', async (req, res) => {

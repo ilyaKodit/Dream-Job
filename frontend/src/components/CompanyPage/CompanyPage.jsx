@@ -10,12 +10,30 @@ class CompanyPage extends Component {
         super(props);
 
         this.state = {
-            id: null
+            reload: false
         }
     }
 
     onClick = async (event) => {
-        this.props.history.push(`company/${this.props.company.id}`);
+        if (event.target.tagName !== 'BUTTON' && event.target.tagName !== 'I'){
+            this.props.history.push(`company/${this.props.company.id}`);
+        }
+    };
+
+    deleteCompany = async (event) => {
+        const resp = await fetch('/companies', {
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id: event.target.dataset.id
+            })
+        });
+        const data = resp.json();
+
+        window.location.reload()
+        // this.props.history.reload();
     };
 
     onMouseOver = (event) => {
@@ -38,6 +56,15 @@ class CompanyPage extends Component {
     render() {
         return (
             <div onClick={this.onClick} onMouseOver={this.onMouseOver} onMouseOut={this.onMouseOut} className={'company'} data-id={this.props.company.id}>
+
+                {
+                    sessionStorage.user === '5e3312905fdb3b46083ffdd9' &&
+
+                    <button onClick={this.deleteCompany} data-id={this.props.company.id} className="ui icon button delete">
+                        <i data-id={this.props.company.id} className="close icon"></i>
+                    </button>
+                }
+
                 <div data-id={this.props.company.id} className={'image_cont'}>
                     <img className={'image'} data-id={this.props.company.id} src={this.props.company.image} alt=""/>
                 </div>
