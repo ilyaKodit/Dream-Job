@@ -8,4 +8,8 @@
     margin: 45px auto;
     padding: 30px;
 }
-
+.container_button{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center; 
+}
