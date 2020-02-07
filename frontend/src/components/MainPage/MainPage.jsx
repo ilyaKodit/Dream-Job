@@ -79,7 +79,7 @@ class MainPage extends Component {
                         <i className="search icon"></i>
                     </div>
                     <Link to={'/add/employer/'} className="ui animated button" style={styles.button} tabIndex="0">
-                        <div className="visible content">Add company</div>
+                        <div className="visible content">Добавить компанию</div>
                         <div className="hidden content">
                             <i className="right plus icon"></i>
                         </div>
