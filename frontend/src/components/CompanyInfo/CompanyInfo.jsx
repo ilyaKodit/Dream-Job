@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import './CompanyInfo.css';
 
-import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {LoadingCompanies, LoadingFeedback} from "../../redux/creators";
 import Review from "../Review/Review";
@@ -49,7 +48,6 @@ class CompanyInfo extends Component {
         this.state = {
             company: null,
             feeds: null,
-            checked: false,
         }
     }
 
@@ -69,19 +67,13 @@ class CompanyInfo extends Component {
 
         this.setState({
             company: companyD,
-            feeds: userFeedback,
-            checked: this.state.checked
+            feeds: userFeedback
         });
 
     };
 
     onClick = (event) => {
-
-        this.setState({
-            company: this.state.company,
-            feeds: this.state.feeds,
-            checked: !this.state.checked
-        })
+        this.props.history.push(`/feedback/${this.state.company.id}`);
     };
 
     render() {
@@ -121,8 +113,7 @@ class CompanyInfo extends Component {
                         : <Spinner/>
                 }
 
-                {this.state.checked && <Redirect to={`/feedback/${this.state.company.id}`}/>}
-                {!sessionStorage.user && <Redirect to="/login"/>}
+                {!sessionStorage.user && this.props.history.push('/home')}
             </div>
         );
     }

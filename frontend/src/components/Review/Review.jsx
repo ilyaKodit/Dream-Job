@@ -28,13 +28,42 @@ const styles = {
         fontSize: '18px',
         color: 'black',
         textAlign: 'center',
-    }
+    },
+    button: {
+        background: '#CC4E46',
+        color: 'white',
+        fontSize: '16px',
+        width: '120px',
+        margin: '0 auto 20px auto',
+        display: 'block',
+    },
 };
 
 class Review extends Component {
 
     onClick = (event) => {
-        document.querySelector(`.id${event.target.dataset.id}`).classList.toggle('open');
+        if (event.target.className !== '' && event.target.className.split(' ').includes('Btn')){
+
+        } else {
+            document.querySelector(`.id${event.target.dataset.id}`).classList.toggle('open');
+        }
+
+    };
+
+    deleteReview = async (event) => {
+        const resp = await fetch('/feed', {
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id: event.target.dataset.id,
+                companyId: this.props.data.companyId
+            })
+        });
+        const data = await resp.json();
+
+        window.location.reload()
     };
 
     getDate = () => {
@@ -97,6 +126,16 @@ class Review extends Component {
                         </div>
                     </div>
 
+                    {
+                        sessionStorage.user === '5e3312905fdb3b46083ffdd9' &&
+
+                        <div onClick={this.deleteReview} data-id={this.props.data._id} style={styles.button} className="ui vertical animated button Btn" tabIndex="0">
+                            <div data-id={this.props.data._id} className="hidden content Btn">
+                                <i data-id={this.props.data._id} className="close icon Btn"></i>
+                            </div>
+                            <div data-id={this.props.data._id} className="visible content Btn">Удалить</div>
+                        </div>
+                    }
 
                 </div>
 

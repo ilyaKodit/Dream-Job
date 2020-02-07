@@ -54,7 +54,6 @@ class MainPage extends Component {
     getFilteredData = async () => {
         try {
             const {searchString} = this.state;
-            console.log(JSON.stringify(searchString));
             let resp = await fetch('/search/companies', {
                 method: 'POST',
                 headers: {

@@ -72,8 +72,6 @@ class Feedback extends Component {
       });
       let data = await resp.json();
 
-      console.log(data);
-
       this.setState({
         interView: '',
         quest: '',

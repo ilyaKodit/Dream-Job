@@ -20,9 +20,9 @@
     text-align: center;
 }
 
-.company > p:nth-child(2){
+.companyName{
     color: #b0352c;
-    font-size: 22px;
+    font-size: 20px !important;
     margin-bottom: 10px;
 }
 
