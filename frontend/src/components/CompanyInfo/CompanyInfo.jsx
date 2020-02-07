@@ -102,11 +102,11 @@ class CompanyInfo extends Component {
                             <p style={styles.text}>Отзывов: {this.state.company.count}</p>
 
                             <div style={styles.button} onClick={this.onClick} className="ui vertical animated button" tabIndex="0">
-                                <div className="visible content">Add review</div>
+                                <div className="visible content">Оставить отзыв</div>
                                 <div className="hidden content">
-                                    <i className="plus icon"></i>
+                                    <i className="right arrow icon"></i>
                                 </div>
-                            </div>
+                            </div>plus icon
 
                             {
                                 this.state.feeds ?
