@@ -138,7 +138,7 @@ class Feedback extends Component {
             <div style={styled1.button} onClick={this.toPressButton} className="ui animated button" tabIndex="0">
               <div className="visible content">Добавить отзыв</div>
               <div className="hidden content">
-                <i className="right arrow icon"></i>
+                <i className="plus icon"></i>
               </div>
             </div>
           </div>
@@ -146,7 +146,7 @@ class Feedback extends Component {
             <div style={styled1.button2} onClick={this.toPressButtonBack}className="ui animated button" tabIndex="0">
               <div className="visible content">Назад</div>
               <div className="hidden content">
-                <i className="right arrow icon"></i>
+                <i className="left arrow icon"></i>
               </div>
             </div>
           </div>
