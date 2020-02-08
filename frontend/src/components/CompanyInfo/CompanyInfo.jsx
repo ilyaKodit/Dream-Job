@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import './CompanyInfo.css';
-
-import { Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { LoadingCompanies, LoadingFeedback } from "../../redux/creators";
+import {connect} from 'react-redux';
+import {LoadingCompanies, LoadingFeedback} from "../../redux/creators";
 import Review from "../Review/Review";
 import Spinner from '../spinner/spinner';
 
@@ -52,9 +50,7 @@ class CompanyInfo extends Component {
 
     this.state = {
       company: null,
-      feeds: null,
-      checked: false,
-      buttonBack: false
+      feeds: null
     }
   }
 
@@ -68,31 +64,22 @@ class CompanyInfo extends Component {
     let dataFeed = await respFeed.json();
     this.props.loadingFeed(dataFeed);
 
-    const companyD = this.props.companies.find((company) => company.id === this.props.match.params.id);
-
+    const companyId = this.props.companies.find((company) => company.id === this.props.match.params.id);
     const userFeedback = this.props.feedback.filter((feed) => feed.companyId === this.props.match.params.id);
 
     this.setState({
-      company: companyD,
-      feeds: userFeedback,
-      checked: this.state.checked
+      company: companyId,
+      feeds: userFeedback
     });
 
   };
 
   onClick = (event) => {
-
-    this.setState({
-      company: this.state.company,
-      feeds: this.state.feeds,
-      checked: !this.state.checked
-    })
+    this.props.history.push(`/feedback/${this.state.company.id}`);
   };
 
   toPressButtonBack = () => {
-    this.setState({
-      buttonBack: true,
-    })
+    this.props.history.push('/main');
   };
 
   render() {
@@ -125,7 +112,7 @@ class CompanyInfo extends Component {
                   </div>
                 </div>
               </div>
-              {this.state.buttonBack && <Redirect to="/main" />}
+              
               {
                 this.state.feeds ?
                   this.state.feeds.map((feed) => {
@@ -134,13 +121,13 @@ class CompanyInfo extends Component {
                   })
                   : <Spinner />
               }
-
+              
             </div>
             : <Spinner />
         }
-
-        {this.state.checked && <Redirect to={`/feedback/${this.state.company.id}`} />}
-        {!sessionStorage.user && <Redirect to="/login" />}
+       
+        {!sessionStorage.user && this.props.history.push('/home')}
+        
       </div>
     );
   }

@@ -50,7 +50,6 @@ class Login extends Component {
                 })
             });
             let data = await resp.json();
-            console.log(data);
             if (data.id) {
                 sessionStorage.user = data.id;
                 sessionStorage.name = data.login;

@@ -30,10 +30,9 @@ class CompanyPage extends Component {
                 id: event.target.dataset.id
             })
         });
-        const data = resp.json();
+        const data = await resp.json();
 
         window.location.reload()
-        // this.props.history.reload();
     };
 
     onMouseOver = (event) => {
@@ -68,7 +67,7 @@ class CompanyPage extends Component {
                 <div data-id={this.props.company.id} className={'image_cont'}>
                     <img className={'image'} data-id={this.props.company.id} src={this.props.company.image} alt=""/>
                 </div>
-                <p data-id={this.props.company.id}>{this.props.company.name}</p>
+                <p data-id={this.props.company.id} className={'companyName'}>{this.props.company.name}</p>
                 <p data-id={this.props.company.id}>Рейтинг: {this.props.company.averageRating}/5</p>
                 <p data-id={this.props.company.id}>Комментарии: {this.props.company.count}</p>
 
